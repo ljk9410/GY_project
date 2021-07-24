@@ -1,0 +1,22 @@
+{
+  "name": "web-project",
+  "version": "1.0.0",
+  "description": "경연인을 위한 웹사이트 제작 프로젝트",
+  "main": "index.js",
+  "scripts": {
+    "start": "node /srcs/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ljk9410/GY_project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ljk9410/GY_project/issues"
+  },
+  "homepage": "https://github.com/ljk9410/GY_project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
