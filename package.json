@@ -4,7 +4,7 @@
   "description": "경연인을 위한 웹사이트 제작 프로젝트",
   "main": "index.js",
   "scripts": {
-    "start": "node /srcs/app.js"
+    "start": "nodemon --exec babel-node srcs/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,5 +18,11 @@
   "homepage": "https://github.com/ljk9410/GY_project#readme",
   "dependencies": {
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/node": "^7.14.7",
+    "@babel/preset-env": "^7.14.8",
+    "nodemon": "^2.0.12"
   }
 }
