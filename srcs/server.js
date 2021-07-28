@@ -7,6 +7,7 @@ const app = express();
 
 app.set("view engine", "pug");
 app.set("views", "srcs/views");
+app.use(express.urlencoded({ extended:true }));
 
 // Routers
 app.use("/", rootRouter);
