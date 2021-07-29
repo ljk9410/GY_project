@@ -60,5 +60,9 @@ export const postUpdate = async (req, res) => {
     res.redirect(`/notice/${id}`);
 }
 
-export const deleteNoticeContent = (req, res) => {
+export const deleteNoticeContent = async (req, res) => {
+    const { id } = req.params;
+    
+    await Notice.findByIdAndDelete(id);
+    res.redirect(`/notice`);
 }
