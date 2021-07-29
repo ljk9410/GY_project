@@ -1,6 +1,11 @@
-export const noticeHome = (req, res) => {
+import Notice from "../models/Notice"
+
+export const noticeHome = async (req, res) => {
     // DB의 notice contents를 목록으로 전부 표시
     // Paging 기술이 필요할 듯
+    const notices = await Notice.find({});
+
+    console.log(notices);
     res.render("notice/home");
 }
 
@@ -11,8 +16,28 @@ export const showNoticeContent = (req, res) => {
     res.render("notice/content");
 }
 
-export const createNoticeContent = (req, res) => {
+export const getCreate = (req, res) => {
     res.render("notice/create");
+}
+
+export const postCreate = async (req, res) => {
+    const { title, desc } = req.body;
+
+    try {
+        const notice = await Notice.create({
+            title:title,
+            desc:desc,
+        });
+
+        notice.save();
+        return res.redirect("/notice");
+    } catch(error) {
+        console.log(error);
+        return res.status(400).render("notice/create",{
+            errorMessage:error._message,
+        })
+    }
+    // form에서 받은 데이터를 DB에 update
 }
 
 export const updateNoticeContent = (req, res) => {

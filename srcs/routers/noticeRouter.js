@@ -1,6 +1,7 @@
 import express from "express";
 import { 
-    createNoticeContent, 
+    getCreate,
+    postCreate, 
     noticeHome, 
     showNoticeContent, 
     updateNoticeContent,
@@ -10,7 +11,7 @@ import {
 const noticeRouter = express.Router();
 
 noticeRouter.get("/", noticeHome);
-noticeRouter.get("/create", createNoticeContent);
+noticeRouter.route("/create").get(getCreate).post(postCreate);
 // ([0-9a-f]{24}) => DB에서 자동적으로 부여하는 id 를 사용하기 위해 나중에 작성
 noticeRouter.get("/:id", showNoticeContent);
 noticeRouter.get("/:id/update", updateNoticeContent);
