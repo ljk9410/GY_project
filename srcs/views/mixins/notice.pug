@@ -1,7 +1,7 @@
 mixin notice(notice)
     li
         div
-            small #{notice.createdAt} | #{notice.views}
-        div
             a(href=`/notice/${notice._id}`)
                 p=notice.title
+        div
+            small #{notice.createdAt} | #{notice.views}
