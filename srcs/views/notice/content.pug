@@ -3,5 +3,9 @@ extends ../base
 block content
     h2=notice.title 
     p=notice.desc 
-    small=notice.createdAt 
+    small=notice.createdAt
+    | 
     small=notice.views
+
+    div
+        a(href=`${notice._id}/update`) 글 수정하기

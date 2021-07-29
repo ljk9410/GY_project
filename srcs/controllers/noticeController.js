@@ -36,11 +36,29 @@ export const postCreate = async (req, res) => {
             errorMessage:error._message,
         })
     }
-    // form에서 받은 데이터를 DB에 update
 }
 
-export const updateNoticeContent = (req, res) => {
-    res.render("notice/update");
+export const getUpdate = async (req, res) => {
+    const { id } = req.params;
+    const notice = await Notice.findById(id);
+
+    res.render("notice/update", { notice });
 }
+
+export const postUpdate = async (req, res) => {
+    const { id } = req.params;
+    const notice = await Notice.findById(id);
+    const { title, desc } = req.body;
+
+    await Notice.findByIdAndUpdate(id, 
+    {
+        title:title,
+        desc:desc,
+        // 작성시간은 수정을 해도 바뀌지 않는게 좋을듯
+    });
+    
+    res.redirect(`/notice/${id}`);
+}
+
 export const deleteNoticeContent = (req, res) => {
 }

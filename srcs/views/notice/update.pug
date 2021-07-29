@@ -1,1 +1,7 @@
-h1 Update Notice Content
+extends ../base
+
+block content 
+    form(method="POST")
+        input(type="text" value=notice.title name="title")
+        textarea(name="desc") #{notice.desc}
+        input(type="submit" value="Submit")

@@ -4,7 +4,8 @@ import {
     postCreate, 
     noticeHome, 
     showNoticeContent, 
-    updateNoticeContent,
+    getUpdate,
+    postUpdate,
     deleteNoticeContent 
 } from "../controllers/noticeController";
 
@@ -14,7 +15,7 @@ noticeRouter.get("/", noticeHome);
 noticeRouter.route("/create").get(getCreate).post(postCreate);
 // ([0-9a-f]{24}) => DB에서 자동적으로 부여하는 id 를 사용하기 위해 나중에 작성
 noticeRouter.get("/:id([0-9a-f]{24})", showNoticeContent);
-noticeRouter.get("/:id([0-9a-f]{24})/update", updateNoticeContent);
+noticeRouter.route("/:id([0-9a-f]{24})/update").get(getUpdate).post(postUpdate);
 noticeRouter.get("/:id([0-9a-f]{24})/delete", deleteNoticeContent);
 
 export default noticeRouter;
