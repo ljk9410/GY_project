@@ -3,10 +3,10 @@ import Notice from "../models/Notice"
 export const noticeHome = async (req, res) => {
     // DB의 notice contents를 목록으로 전부 표시
     // Paging 기술이 필요할 듯
-    const notices = await Notice.find({});
+    const notices = await Notice.find({}).sort({ createdAt:"desc" });
 
     console.log(notices);
-    res.render("notice/home");
+    res.render("notice/home", {notices});
 }
 
 export const showNoticeContent = (req, res) => {
