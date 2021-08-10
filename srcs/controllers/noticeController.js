@@ -32,6 +32,7 @@ export const postCreate = async (req, res) => {
         notice.save();
         return res.redirect("/notice");
     } catch(error) {
+        // error가 떴을 때 error message를 render 해줄 페이지 새로 만들기
         return res.status(400).render("notice/create",{
             errorMessage:error._message,
         })
@@ -47,7 +48,6 @@ export const getUpdate = async (req, res) => {
 
 export const postUpdate = async (req, res) => {
     const { id } = req.params;
-    const notice = await Notice.findById(id);
     const { title, desc } = req.body;
 
     await Notice.findByIdAndUpdate(id, 
