@@ -10,6 +10,7 @@ app.set("view engine", "pug");
 app.set("views", "srcs/views");
 app.use(express.urlencoded({ extended:true }));
 app.use("/uploads", express.static("uploads"));
+app.use("/assets", express.static("assets"));
 
 // Routers
 app.use("/", rootRouter);
