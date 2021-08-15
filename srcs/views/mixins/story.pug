@@ -1,0 +1,9 @@
+mixin story(story)
+    li
+        div.main-photo
+            img(src=`${story.fileUrl[0]}`)
+        div
+            a(href=`/story/${story._id}`)
+                p=story.title
+        div
+            small #{story.createdAt} | #{story.views}

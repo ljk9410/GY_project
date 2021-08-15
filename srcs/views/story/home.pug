@@ -1,5 +1,9 @@
 extends ../base
+include ../mixins/story
 
 block content
     h1 Story Home
+    ul
+        each story in stories 
+            +story(story)
     a(href="/story/create") 글 작성하기

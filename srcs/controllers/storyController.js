@@ -1,7 +1,10 @@
 import Story from "../models/Story";
+import fs from "fs";
 
-export const storyHome = (req, res) => {
-    res.render("story/home");
+export const storyHome = async (req, res) => {
+    const stories = await Story.find({}).sort({ createdAt:"desc" });;
+
+    res.render("story/home", { stories });
 }
 
 export const getCreate = (req, res) => {
@@ -26,4 +29,36 @@ export const postCreate = async (req, res) => {
             errorMessage:error._message,
         })
     }
+}
+
+export const showContents = async (req, res) => {
+    const { id } = req.params;
+    const story = await Story.findById(id);
+
+    res.render("story/content", { story });
+}
+
+export const getUpdate = async (req, res) => {
+    const { id } = req.params;
+    const story = await Story.findById(id);
+
+    res.render("story/update", { story });
+}
+export const postUpdate = (req, res) => {
+    res.end();
+}
+
+export const deleteContent = async (req, res) => {
+    const { id } = req.params;
+    const story = await Story.findById(id);
+
+    for (let i = 0; i < story.fileUrl.length; i++) {
+        fs.unlink(`${story.fileUrl[i]}`, (err) => {
+            if (err)
+                console.log(`Error: ${err}`);
+        })
+    }
+    await Story.findByIdAndDelete(id);
+
+    res.redirect(`/story`);
 }
