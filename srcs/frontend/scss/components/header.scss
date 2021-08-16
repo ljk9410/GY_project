@@ -1,0 +1,25 @@
+header {
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 30px;
+    }
+    .logo {
+        width: 100px;
+        height: 100px;
+    }
+    .menu__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        .menu__link {
+            display: block;
+            white-space: nowrap;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #5a5858;
+        }
+    }
+}

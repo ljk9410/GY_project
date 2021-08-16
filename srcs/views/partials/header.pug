@@ -1,13 +1,14 @@
 header
-    // logo 들어갈 자리
-    h1 경제연구회
-    nav 
-        ul 
-            li
-                a(href="/") Home
-            li
-                a(href="/about-us") About Us
-            li
-                a(href="/notice") Notice
-            li
-                a(href="/story") Story
+    nav
+        div.logo__container
+            a(href="/")
+                img(src="/uploads/경연로고.jpg").logo
+        ul.menu__container
+            li.menu__item
+                a(href="/about-us").menu__link About Us
+            li.menu__item
+                a(href="/notice").menu__link Notice
+            li.menu__item
+                a(href="/story").menu__link Story
+            li.menu__item
+                a(href="/story").menu__link Calendar
