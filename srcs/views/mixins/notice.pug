@@ -1,7 +1,5 @@
 mixin notice(notice)
-    li
-        div
-            a(href=`/notice/${notice._id}`)
-                p=notice.title
-        div
-            small #{notice.createdAt} | #{notice.views}
+    li.notice__contents-item
+        a(href=`/notice/${notice._id}`).notice__contents-item-title
+            h3=notice.title
+        p #{notice.createdAt} | #{notice.views}

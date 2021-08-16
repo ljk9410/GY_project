@@ -2,10 +2,10 @@ extends ../base
 include ../mixins/notice
 
 block content
-    h1 Notice Home
-    // contents 표시하는 공간
-    ul
-        each notice in notices 
-            +notice(notice)
-    div
-        a(href="/notice/create") 글 작성하기
+    div.notice__container
+        h2 공지사항
+        ul.notice__contents-container
+            each notice in notices 
+                +notice(notice)
+            div
+                a(href="/notice/create") 글 작성하기

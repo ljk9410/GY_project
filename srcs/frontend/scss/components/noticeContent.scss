@@ -1,0 +1,20 @@
+.notice__container {
+    width: 80%;
+    margin: 0 auto;
+    h2 {
+        font-size: 32px;
+        padding: 5px 0;
+    }
+    .notice__contents-container {
+        border-top: 2px solid black;
+        .notice__contents-item {
+            padding: 20px 10px;
+            .notice__contents-item-title {
+                display: block;
+                font-size: 24px;
+                font-weight: 600;
+                padding: 20px 10px;
+            }
+        }
+    }
+}
