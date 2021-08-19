@@ -2,14 +2,16 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 module.exports = {
-    entry: "./srcs/frontend/js/main.js",
+    entry: {
+        main: "./srcs/frontend/js/main.js",
+    },
     mode: 'development',
     watch: true,
     plugins: [new MiniCssExtractPlugin({
         filename: "css/styles.css"
     })],
     output: {
-        filename: "js/main.js",
+        filename: "js/[name].js",
         path: path.resolve(__dirname, "assets"),
         clean: true,
     },

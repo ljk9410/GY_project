@@ -1,5 +1,7 @@
 mixin notice(notice)
     li.notice__contents-item
-        a(href=`/notice/${notice._id}`).notice__contents-item-title
-            h3=notice.title
-        p #{notice.createdAt} | #{notice.views}
+        a(href=`/notice/${notice._id}`).notice__contents-item-link
+            div
+                p [공지]
+                h3=notice.title
+            p.notice__contents-meta #{new Date(notice.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} | Views: #{notice.views}

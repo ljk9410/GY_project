@@ -7,5 +7,6 @@ block content
         ul.notice__contents-container
             each notice in notices 
                 +notice(notice)
-            div
-                a(href="/notice/create") 글 작성하기
+        div.notice__contents-create
+            button
+                a(href="/notice/create") 글쓰기
