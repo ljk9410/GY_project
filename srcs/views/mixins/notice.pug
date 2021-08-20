@@ -1,7 +1,7 @@
 mixin notice(notice)
-    li.notice__contents-item
-        a(href=`/notice/${notice._id}`).notice__contents-item-link
+    li.notice__home-contents-item
+        a(href=`/notice/${notice._id}`).notice__home-contents-item-link
             div
                 p [공지]
                 h3=notice.title
-            p.notice__contents-meta #{new Date(notice.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} | Views: #{notice.views}
+            p.notice__home-contents-meta #{new Date(notice.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} | 조회수 #{notice.views}

@@ -2,11 +2,11 @@ extends ../base
 include ../mixins/notice
 
 block content
-    div.notice__container
+    div.notice__home-container
         h2 공지사항
-        ul.notice__contents-container
+        ul.notice__home-contents-container
             each notice in notices 
                 +notice(notice)
-        div.notice__contents-create
+        div.notice__home-contents-create
             button
                 a(href="/notice/create") 글쓰기
