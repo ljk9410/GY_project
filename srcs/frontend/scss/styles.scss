@@ -4,8 +4,11 @@
 
 // components
 @import "./components/header.scss";
-@import "./components/noticeHome.scss";
-@import "./components/noticeContent.scss";
+
+// notice
+@import "./Notice/noticeHome.scss";
+@import "./Notice/noticeContent.scss";
+@import "./Notice/noticeForm.scss";
 
 // font
 @font-face {

@@ -1,0 +1,40 @@
+form {
+    display: flex;
+    flex-direction: column;
+    border-top: 2px solid black;
+    padding: 10px;
+}
+
+input {
+    all: unset;
+}
+
+input[type="text"] {
+    border-bottom: 1px solid gray;
+    padding: 15px 20px 25px 20px;
+}
+
+textarea {
+    all: unset;
+    padding: 25px 20px;
+    height: 600px;
+    line-height: 1.4;
+}
+
+input[type="submit"] {
+    background-color: rgba(131, 133, 131, 0.5);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    // align-self: flex-start;
+    display: block;
+    width: 80px;
+    padding: 10px 0;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+input[type="submit"]:hover {
+    background-color: rgba(131, 133, 131, 0.7);
+}
