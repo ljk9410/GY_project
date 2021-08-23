@@ -1,5 +1,6 @@
 mixin story(story)
     figure.story__item-list
-        img.story__item-img(src=`${story.fileUrl[0]}`)
         a(href=`/story/${story._id}`)
-        figcaption.story__item-title=story.title
+            div.story__item-img(style=`background-image: url(/uploads/${story.fileUrl[0].substring(8)})`)
+                img(src=`${story.fileUrl[0]}`)
+        //- figcaption.story__item-title=story.title
