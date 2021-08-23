@@ -2,8 +2,11 @@ extends ../base
 include ../mixins/story
 
 block content
-    h1 Story Home
-    ul
+    div.story__item-container
         each story in stories 
             +story(story)
+
     a(href="/story/create") 글 작성하기
+
+block scripts 
+    script(src="/assets/js/layout.js")

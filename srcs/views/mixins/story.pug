@@ -1,9 +1,5 @@
 mixin story(story)
-    li
-        div.main-photo
-            img(src=`${story.fileUrl[0]}`)
-        div
-            a(href=`/story/${story._id}`)
-                p=story.title
-        div
-            small #{story.createdAt} | #{story.views}
+    figure.story__item-list
+        img.story__item-img(src=`${story.fileUrl[0]}`)
+        a(href=`/story/${story._id}`)
+        figcaption.story__item-title=story.title
