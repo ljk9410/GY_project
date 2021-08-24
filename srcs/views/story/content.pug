@@ -8,8 +8,11 @@ block content
                     each photo in story.fileUrl 
                         li.story__content-slide-content
                             img(src=`/${photo}`)
+            div.slide-pagination-container
+                ul.story__content-slide-pagination
             div.story__content-slide-btn
                 button.story__content-slide-prevBtn Prev
+                div.for-style style
                 button.story__content-slide-nextBtn Next
     div
         h2=story.title 

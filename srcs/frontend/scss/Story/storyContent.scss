@@ -15,7 +15,36 @@
             }
         }
     }
-    .story__content-slide-prevBtn {
-        display: none;
+    .slide-pagination-container {
+        width: 100%;
+        .story__content-slide-pagination {
+            display: flex;
+            justify-content: center;
+            .dot {
+                display: block;
+                border-radius: 100%;
+                margin: 8px 5px;
+                width: 8px;
+                height: 8px;
+                background-color: lightgray ;
+            }
+            .dot.dot-active {
+                background-color:lightskyblue;
+                transition: 300ms;
+            }
+        }
+    }
+    .story__content-slide-btn {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .for-style {
+            opacity: 0;
+        }
+        .story__content-slide-prevBtn {
+            display: none;
+        }
+        // .story__content-slide-nextBtn {
+        // }
     }
 }
