@@ -1,0 +1,21 @@
+.story__content-slide-wrap {
+    width: 480px;
+    .story__content-slide-box {
+        width: 100%;
+        overflow-x: hidden;
+        .story__content-slide-list {
+            display: flex;
+            flex-wrap: nowrap;
+            .story__content-slide-content {
+                width: 480px;
+                height: 480px;
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    .story__content-slide-prevBtn {
+        display: none;
+    }
+}

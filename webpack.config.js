@@ -4,6 +4,7 @@ const path = require("path");
 module.exports = {
     entry: {
         main: "./srcs/frontend/js/main.js",
+        storySlide: "./srcs/frontend/js/storySlide.js",
     },
     mode: 'development',
     watch: true,

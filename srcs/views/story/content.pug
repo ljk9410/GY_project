@@ -1,17 +1,25 @@
 extends ../base
 
-block content 
-    ul 
-        each photo in story.fileUrl 
-            li
-                img(src=`/${photo}`)
-    h2=story.title 
-    p=story.desc 
-    small=story.createdAt
-    | 
-    small=story.views
-
+block content
+    article.story__content-container
+        div.story__content-slide-wrap
+            div.story__content-slide-box
+                ul.story__content-slide-list
+                    each photo in story.fileUrl 
+                        li.story__content-slide-content
+                            img(src=`/${photo}`)
+            div.story__content-slide-btn
+                button.story__content-slide-prevBtn Prev
+                button.story__content-slide-nextBtn Next
     div
-        a(href=`${story._id}/update`) 글 수정하기
-    div
-        a(href=`${story._id}/delete`) 글 삭제하기
+        h2=story.title 
+        p=story.desc 
+        small=story.createdAt
+        | 
+        small=story.views
+        div
+            a(href=`${story._id}/update`) 글 수정하기
+        div
+            a(href=`${story._id}/delete`) 글 삭제하기
+block scripts 
+    script(src="/assets/js/storySlide.js") 
