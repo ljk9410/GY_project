@@ -1,0 +1,22 @@
+extends ../base
+
+block content 
+    div.calendar
+        div.calendar__header
+            button.calendar__btn-prev prev
+            div.calendar__title
+                div.calendar__year-title
+                div.calendar__month-title
+            button.calendar__btn-next next
+        div.calendar__main
+            div.calendar__day-container
+                div.calendar__day 일
+                div.calendar__day 월
+                div.calendar__day 화
+                div.calendar__day 수
+                div.calendar__day 목
+                div.calendar__day 금
+                div.calendar__day 토
+            div.calendar__date-container
+block scripts 
+    script(src="/assets/js/calendar.js") 

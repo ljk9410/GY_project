@@ -5,3 +5,7 @@ export const home = (req, res) => {
 export const aboutUs = (req, res) => {
     res.render("aboutUs/home");
 }
+
+export const calendar = (req, res) => {
+    res.render("calendar/home");
+}
