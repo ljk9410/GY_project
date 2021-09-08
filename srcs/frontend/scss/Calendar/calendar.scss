@@ -1,6 +1,4 @@
 .calendar {
-    width: 95%;
-    margin: 0 auto;
     .calendar__header {
         display: flex;
         justify-content: space-between;
@@ -14,6 +12,7 @@
             font-size: 24px;
         }
     }
+
     .calendar__main {
         display: flex;
         flex-direction: column;
@@ -55,5 +54,63 @@
                 padding: 2px;
             }
         }
+    }
+
+    .calendar__schedule {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .calendar__schedule-form-overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            height: 100%;
+        }
+        .calendar__schedule-form-modal{
+            background-color: white;
+            position: fixed;
+            width: 50vw;
+            height: 60vh;
+            max-width: 450px;
+            max-height: 700px;
+            border-radius: 7px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            .calendar__schedule-form-modal-title {
+                font-size: 24px;
+                font-weight: 600;
+                padding: 20px;
+            }
+            .calendar__schedule-modal-list {
+                flex-grow: 1;
+                align-self: flex-start;
+                padding: 20px;
+                font-size: 18px;
+                li {
+                    margin-bottom: 25px;
+                }
+            }
+            .calendar__schedule-form {
+                width: 100%;
+                border: none;
+                input {
+                    all: unset;
+                    padding: 10px 0;
+                }
+                button {
+                    height: 40px;
+                }
+            }
+        }
+    }
+    .hidden {
+        display: none;
     }
 }
