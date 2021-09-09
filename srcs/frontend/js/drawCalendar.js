@@ -11,7 +11,6 @@ function buildCalendar() {
     let currentFirstDay = new Date(currentYear, currentMonth, 1);
     let currentLastDay = new Date(currentYear, currentMonth + 1, 0);
     
-
     // title 채우기
     document.querySelector('.calendar__year-title').innerHTML = `${currentYear}년`;
     document.querySelector('.calendar__month-title').innerHTML = `${currentMonth + 1}월 `;
@@ -92,7 +91,27 @@ function buildCalendar() {
     document.querySelector('.calendar__date-container').innerHTML = htmlDates;
 }
 
-buildCalendar();
+// modal handler
+function handleModal() {
+    const dataInfo = document.querySelectorAll(".calendar__date-info");
+    const hidden = document.querySelector(".hidden");
+    const overlay = document.querySelector(".calendar__schedule-form-overlay");
+    const addBtn = document.querySelector(".calendar__schedule-form-btn ");
+
+    const popCalendarModal = () => {
+        hidden.classList.remove("hidden");
+    }
+
+    const closeModal = () => {
+        hidden.classList.add("hidden");
+    }
+
+    dataInfo.forEach((date) => {
+        date.addEventListener("click", popCalendarModal);
+    })
+    overlay.addEventListener("click", closeModal);
+    addBtn.addEventListener("click", closeModal);
+}
 
 // button handler
 let prevBtn = document.querySelector('.calendar__btn-prev');
@@ -101,11 +120,15 @@ let nextBtn = document.querySelector('.calendar__btn-next');
 let prevBtnHandler = () => {
     calendarDate.setMonth(calendarDate.getMonth() - 1);
     buildCalendar();
+    handleModal();
 }
 let nextBtnHandler = () => {
     calendarDate.setMonth(calendarDate.getMonth() + 1);
     buildCalendar();
+    handleModal();
 }
 
+buildCalendar();
+handleModal();
 prevBtn.addEventListener('click', prevBtnHandler);
 nextBtn.addEventListener('click', nextBtnHandler);
