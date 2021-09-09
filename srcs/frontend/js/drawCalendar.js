@@ -5,7 +5,6 @@ function buildCalendar() {
     let currentYear = calendarDate.getFullYear();
     let currentMonth = calendarDate.getMonth();
 
-
     // 현재 달 첫날 마지막날, 전 달 마지막날 구하기
     let prevLastDay = new Date(currentYear, currentMonth, 0);
     let currentFirstDay = new Date(currentYear, currentMonth, 1);
@@ -44,9 +43,13 @@ function buildCalendar() {
     let htmlDates = "";
     let i = 0;
 
+    let dataYear = currentYear;
+    let dataMonth = currentMonth + 1;
+
     while (i < prevRemain) {
+        let dateData = `${dataYear}-${dataMonth - 1 ? dataMonth - 1 : 12}-${dates[i]}`;
         htmlDates += `
-        <div class="calendar__date-info noCurrent">
+        <div class="calendar__date-info noCurrent" data-date="${dateData}">
             <div class="calendar__date-info-num">${dates[i]}</div>
             <div class="calendar__date-info-schedule"></div>
         </div>
@@ -55,13 +58,14 @@ function buildCalendar() {
     }
 
     while (i < 42 - nextRemain) {
+        let dateData = `${dataYear}-${dataMonth}-${dates[i]}`;
         if (
             today.getDate() === dates[i] &&
             today.getMonth() === calendarDate.getMonth() &&
             today.getFullYear() === calendarDate.getFullYear()
             ) {
             htmlDates += `
-            <div class="calendar__date-info today">
+            <div class="calendar__date-info today" data-date="${dateData}">
                 <div class="calendar__date-info-num">${dates[i]}</div>
                 <div class="calendar__date-info-schedule"></div>
             </div>
@@ -69,7 +73,7 @@ function buildCalendar() {
         }
         else {
             htmlDates += `
-            <div class="calendar__date-info">
+            <div class="calendar__date-info" data-date="${dateData}">
                 <div class="calendar__date-info-num">${dates[i]}</div>
                 <div class="calendar__date-info-schedule"></div>
             </div>
@@ -79,8 +83,9 @@ function buildCalendar() {
     }
     
     while (i < 42) {
+        let dateData = `${dataYear}-${dataMonth + 1 === 13 ? 1 : dataMonth + 1}-${dates[i]}`;
         htmlDates += `
-        <div class="calendar__date-info noCurrent">
+        <div class="calendar__date-info noCurrent" data-date="${dateData}">
             <div class="calendar__date-info-num">${dates[i]}</div>
             <div class="calendar__date-info-schedule"></div>
         </div>
@@ -96,7 +101,7 @@ function handleModal() {
     const dataInfo = document.querySelectorAll(".calendar__date-info");
     const hidden = document.querySelector(".hidden");
     const overlay = document.querySelector(".calendar__schedule-form-overlay");
-    const addBtn = document.querySelector(".calendar__schedule-form-btn ");
+    // const addBtn = document.querySelector(".calendar__schedule-form-btn ");
 
     const popCalendarModal = () => {
         hidden.classList.remove("hidden");
@@ -110,7 +115,7 @@ function handleModal() {
         date.addEventListener("click", popCalendarModal);
     })
     overlay.addEventListener("click", closeModal);
-    addBtn.addEventListener("click", closeModal);
+    // addBtn.addEventListener("click", closeModal);
 }
 
 // button handler
