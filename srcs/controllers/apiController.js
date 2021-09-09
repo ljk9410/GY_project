@@ -4,4 +4,6 @@ export const calendar = (req, res) => {
 
 export const createSchedule = (req, res) => {
     console.log(req.body);
+    console.log(req.body.text);
+    console.log(req.body.date);
 }

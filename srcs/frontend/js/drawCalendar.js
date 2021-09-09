@@ -1,3 +1,5 @@
+import handleSchedule from "./calendarSchedule";
+
 let today = new Date();
 let calendarDate = new Date();
 
@@ -126,14 +128,17 @@ let prevBtnHandler = () => {
     calendarDate.setMonth(calendarDate.getMonth() - 1);
     buildCalendar();
     handleModal();
+    handleSchedule();
 }
 let nextBtnHandler = () => {
     calendarDate.setMonth(calendarDate.getMonth() + 1);
     buildCalendar();
     handleModal();
+    handleSchedule();
 }
 
 buildCalendar();
 handleModal();
+handleSchedule();
 prevBtn.addEventListener('click', prevBtnHandler);
 nextBtn.addEventListener('click', nextBtnHandler);
