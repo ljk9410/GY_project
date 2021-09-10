@@ -5,8 +5,7 @@ module.exports = {
     entry: {
         main: "./srcs/frontend/js/main.js",
         storySlide: "./srcs/frontend/js/storySlide.js",
-        drawCalendar: "./srcs/frontend/js/drawCalendar.js",
-        calendarSchedule: "./srcs/frontend/js/calendarSchedule.js",
+        calendar: "./srcs/frontend/js/calendar.js",
     },
     mode: 'development',
     watch: true,

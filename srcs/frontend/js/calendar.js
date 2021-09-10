@@ -1,8 +1,10 @@
-import handleSchedule from "./calendarSchedule";
+import regeneratorRuntime from "regenerator-runtime";
 
 let today = new Date();
 let calendarDate = new Date();
 
+
+// Calendar 그리기 함수
 function buildCalendar() {
     let currentYear = calendarDate.getFullYear();
     let currentMonth = calendarDate.getMonth();
@@ -100,10 +102,9 @@ function buildCalendar() {
 
 // modal handler
 function handleModal() {
-    const dataInfo = document.querySelectorAll(".calendar__date-info");
+    const dateInfo = document.querySelectorAll(".calendar__date-info");
     const hidden = document.querySelector(".hidden");
     const overlay = document.querySelector(".calendar__schedule-form-overlay");
-    // const addBtn = document.querySelector(".calendar__schedule-form-btn ");
 
     const popCalendarModal = () => {
         hidden.classList.remove("hidden");
@@ -113,12 +114,52 @@ function handleModal() {
         hidden.classList.add("hidden");
     }
 
-    dataInfo.forEach((date) => {
+    dateInfo.forEach((date) => {
         date.addEventListener("click", popCalendarModal);
     })
     overlay.addEventListener("click", closeModal);
-    // addBtn.addEventListener("click", closeModal);
 }
+ 
+
+
+
+let currDate;
+
+const testFunction = () => {
+    const dates = document.querySelectorAll(".calendar__date-info");
+    const addEvent = (e) => {
+        currDate = e.target.dataset.date;
+    }
+    dates.forEach((date) => {
+        date.addEventListener("click", addEvent);
+    })    
+}
+
+const form = document.querySelector(".calendar__schedule-form");
+const text = document.querySelector("input");
+const btn = form.querySelector("button");
+
+const handleSubmit = async(e) => {
+    e.preventDefault();
+    if (text.value === "") {
+        return ;
+    }
+    await fetch("/calendar/schedule", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            text: text.value,
+            date: currDate,
+        })
+    })
+    console.log(text.value);
+    text.value = "";
+}
+
+
+
 
 // button handler
 let prevBtn = document.querySelector('.calendar__btn-prev');
@@ -128,17 +169,22 @@ let prevBtnHandler = () => {
     calendarDate.setMonth(calendarDate.getMonth() - 1);
     buildCalendar();
     handleModal();
-    handleSchedule();
+    testFunction();
+    btn.removeEventListener("click", handleSubmit);
+    btn.addEventListener("click", handleSubmit);
 }
 let nextBtnHandler = () => {
     calendarDate.setMonth(calendarDate.getMonth() + 1);
     buildCalendar();
     handleModal();
-    handleSchedule();
+    testFunction();
+    btn.removeEventListener("click", handleSubmit);
+    btn.addEventListener("click", handleSubmit);
 }
 
 buildCalendar();
 handleModal();
-handleSchedule();
+testFunction();
 prevBtn.addEventListener('click', prevBtnHandler);
 nextBtn.addEventListener('click', nextBtnHandler);
+btn.addEventListener("click", handleSubmit);
