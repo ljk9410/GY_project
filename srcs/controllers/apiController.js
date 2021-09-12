@@ -22,3 +22,15 @@ export const createSchedule = async(req, res) => {
         })
     }
 }
+
+export const deleteSchedule = async(req,res) => {
+    const { id } = req.body;
+    
+    try {
+        await Schedule.findByIdAndDelete(id);
+    } catch (error) {
+        return res.status(400).render("calendar/home", {
+            errorMessage:error._message,
+        })
+    }
+}

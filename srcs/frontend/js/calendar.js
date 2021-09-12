@@ -175,7 +175,7 @@ const handleSubmit = async(e) => {
 
 // 일정 추가 기능
 
-function showSchedules() {
+function handleSchedules() {
     const schedules = document.querySelectorAll(".scheduleData");
     const info = document.querySelectorAll(".calendar__date-info");
     
@@ -184,13 +184,42 @@ function showSchedules() {
         let htmls = '';
         schedules.forEach(schedule => {
             if (info.dataset.date === schedule.dataset.date) {
-                htmls += `<li>${schedule.dataset.text}</li>`;
+                htmls += `
+                <li data-id="${schedule.dataset.id}">
+                    ${schedule.dataset.text}
+                    <span data-id="${schedule.dataset.id}" class="schedule-deleteBtn">❌</span>
+                </li>`;
             }
         })
         if (htmls !== '')
             scheduleContainer.innerHTML = htmls;
     })
 }
+
+
+// delete handler
+function handleDeleteBtn() {
+    const deleteBtn = document.querySelectorAll(".schedule-deleteBtn");
+
+    const handleDelete = async(e) => {
+        e.stopPropagation();
+        e.target.parentNode.remove();
+        const id = e.target.dataset.id;
+
+        await fetch("/calendar/schedule/delete", {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ id:id }),
+        })
+    }
+
+    deleteBtn.forEach(btn => {
+        btn.addEventListener("click", handleDelete);
+    })
+}
+
 
 
 // button handler
@@ -204,7 +233,8 @@ const prevBtnHandler = () => {
     getScheduleDate();
     btn.removeEventListener("click", handleSubmit);
     btn.addEventListener("click", handleSubmit);
-    showSchedules();
+    handleSchedules();
+    handleDeleteBtn()
 }
 const nextBtnHandler = () => {
     calendarDate.setMonth(calendarDate.getMonth() + 1);
@@ -213,7 +243,8 @@ const nextBtnHandler = () => {
     getScheduleDate();
     btn.removeEventListener("click", handleSubmit);
     btn.addEventListener("click", handleSubmit);
-    showSchedules();
+    handleSchedules();
+    handleDeleteBtn()
 }
 
 
@@ -223,7 +254,8 @@ const nextBtnHandler = () => {
 buildCalendar();
 handleModal();
 getScheduleDate();
-showSchedules();
+handleSchedules();
+handleDeleteBtn()
 prevBtn.addEventListener('click', prevBtnHandler);
 nextBtn.addEventListener('click', nextBtnHandler);
 btn.addEventListener("click", handleSubmit);

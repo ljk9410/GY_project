@@ -20,7 +20,7 @@ block content
             div.calendar__date-container
             ul.calendar__date-info-scheduleData-list
                 each schedule in schedules
-                    li.scheduleData(data-text=schedule.text data-date=schedule.date)
+                    li.scheduleData(data-id=schedule._id data-text=schedule.text data-date=schedule.date)
         div.calendar__schedule.hidden
             div.calendar__schedule-form-overlay
             div.calendar__schedule-form-modal
