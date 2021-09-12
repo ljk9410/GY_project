@@ -106,9 +106,21 @@ function handleModal() {
     const hidden = document.querySelector(".hidden");
     const overlay = document.querySelector(".calendar__schedule-form-overlay");
 
-    const popCalendarModal = (e) => {
-        const sheduleList
-        console.log(e.target);
+    const drawCalendarModal = (e) => {
+        const modalTitle = document.querySelector(".calendar__schedule-form-modal-title");
+        const date = e.target.dataset.date;
+        const title = `${(date || '').split("-")[0]}년 ${(date || '').split("-")[1]}월 ${(date || '').split("-")[2]}일`
+        const scheduleList = document.querySelector(".calendar__schedule-modal-list");
+        const scheduleListItems = e.target.querySelectorAll("li");
+        let htmls = '';
+
+        if (scheduleListItems.length) {
+            scheduleListItems.forEach(item => {
+                htmls += `<li>${item.innerHTML}</li>`;
+            })
+        }
+        scheduleList.innerHTML = htmls;
+        modalTitle.innerText = title;
         hidden.classList.remove("hidden");
     }
 
@@ -117,7 +129,7 @@ function handleModal() {
     }
 
     dateInfo.forEach((date) => {
-        date.addEventListener("click", popCalendarModal);
+        date.addEventListener("click", drawCalendarModal);
     })
     overlay.addEventListener("click", closeModal);
 }
@@ -166,7 +178,6 @@ const handleSubmit = async(e) => {
 function showSchedules() {
     const schedules = document.querySelectorAll(".scheduleData");
     const info = document.querySelectorAll(".calendar__date-info");
-    
     
     info.forEach(info => {
         const scheduleContainer = info.querySelector(".calendar__date-info-schedule");
