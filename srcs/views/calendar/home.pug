@@ -18,6 +18,9 @@ block content
                 div.calendar__day 금
                 div.calendar__day 토
             div.calendar__date-container
+            ul.calendar__date-info-scheduleData-list
+                each schedule in schedules
+                    li.scheduleData(data-text=schedule.text data-date=schedule.date)
         div.calendar__schedule.hidden
             div.calendar__schedule-form-overlay
             div.calendar__schedule-form-modal

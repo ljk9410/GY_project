@@ -55,7 +55,7 @@ function buildCalendar() {
         htmlDates += `
         <div class="calendar__date-info noCurrent" data-date="${dateData}">
             <div class="calendar__date-info-num">${dates[i]}</div>
-            <div class="calendar__date-info-schedule"></div>
+            <ul class="calendar__date-info-schedule"></ul>
         </div>
         `
         i++;
@@ -71,7 +71,7 @@ function buildCalendar() {
             htmlDates += `
             <div class="calendar__date-info today" data-date="${dateData}">
                 <div class="calendar__date-info-num">${dates[i]}</div>
-                <div class="calendar__date-info-schedule"></div>
+                <ul class="calendar__date-info-schedule"></ul>
             </div>
             `
         }
@@ -79,7 +79,7 @@ function buildCalendar() {
             htmlDates += `
             <div class="calendar__date-info" data-date="${dateData}">
                 <div class="calendar__date-info-num">${dates[i]}</div>
-                <div class="calendar__date-info-schedule"></div>
+                <ul class="calendar__date-info-schedule"></ul>
             </div>
             `
         }
@@ -91,7 +91,7 @@ function buildCalendar() {
         htmlDates += `
         <div class="calendar__date-info noCurrent" data-date="${dateData}">
             <div class="calendar__date-info-num">${dates[i]}</div>
-            <div class="calendar__date-info-schedule"></div>
+            <ul class="calendar__date-info-schedule"></ul>
         </div>
         `
         i++;
@@ -106,7 +106,9 @@ function handleModal() {
     const hidden = document.querySelector(".hidden");
     const overlay = document.querySelector(".calendar__schedule-form-overlay");
 
-    const popCalendarModal = () => {
+    const popCalendarModal = (e) => {
+        const sheduleList
+        console.log(e.target);
         hidden.classList.remove("hidden");
     }
 
@@ -122,10 +124,10 @@ function handleModal() {
  
 
 
-
+// server에 form data 넘기기
 let currDate;
 
-const testFunction = () => {
+const getScheduleDate = () => {
     const dates = document.querySelectorAll(".calendar__date-info");
     const addEvent = (e) => {
         currDate = e.target.dataset.date;
@@ -159,32 +161,62 @@ const handleSubmit = async(e) => {
 }
 
 
+// 일정 추가 기능
+
+function showSchedules() {
+    const schedules = document.querySelectorAll(".scheduleData");
+    const info = document.querySelectorAll(".calendar__date-info");
+    
+    
+    info.forEach(info => {
+        const scheduleContainer = info.querySelector(".calendar__date-info-schedule");
+        let htmls = '';
+        schedules.forEach(schedule => {
+            if (info.dataset.date === schedule.dataset.date) {
+                htmls += `<li>${schedule.dataset.text}</li>`;
+            }
+        })
+        if (htmls !== '')
+            scheduleContainer.innerHTML = htmls;
+    })
+}
 
 
 // button handler
-let prevBtn = document.querySelector('.calendar__btn-prev');
-let nextBtn = document.querySelector('.calendar__btn-next');
+const prevBtn = document.querySelector('.calendar__btn-prev');
+const nextBtn = document.querySelector('.calendar__btn-next');
 
-let prevBtnHandler = () => {
+const prevBtnHandler = () => {
     calendarDate.setMonth(calendarDate.getMonth() - 1);
     buildCalendar();
     handleModal();
-    testFunction();
+    getScheduleDate();
     btn.removeEventListener("click", handleSubmit);
     btn.addEventListener("click", handleSubmit);
+    showSchedules();
 }
-let nextBtnHandler = () => {
+const nextBtnHandler = () => {
     calendarDate.setMonth(calendarDate.getMonth() + 1);
     buildCalendar();
     handleModal();
-    testFunction();
+    getScheduleDate();
     btn.removeEventListener("click", handleSubmit);
     btn.addEventListener("click", handleSubmit);
+    showSchedules();
 }
+
+
+
+
 
 buildCalendar();
 handleModal();
-testFunction();
+getScheduleDate();
+showSchedules();
 prevBtn.addEventListener('click', prevBtnHandler);
 nextBtn.addEventListener('click', nextBtnHandler);
 btn.addEventListener("click", handleSubmit);
+
+
+
+
