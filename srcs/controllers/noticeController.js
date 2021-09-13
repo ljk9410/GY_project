@@ -3,9 +3,54 @@ import Notice from "../models/Notice"
 // DB의 notice contents를 목록으로 전부 표시
 // Paging 기술이 필요할 듯
 export const noticeHome = async (req, res) => {
-    const notices = await Notice.find({}).sort({ createdAt:"desc" });
+    let { page } = req.query;
+    
+    if (!page)
+        page = 1;
 
-    res.render("notice/home", { notices });
+    function paging(page, totalPost) {
+        const maxPost = 10;
+        const maxPage = 5;
+        let currentPage = page ? parseInt(page) : 1;
+        const hidePost = page === 1 ? 0 : (page - 1) * maxPost;
+        const totalPage = Math.ceil(totalPost / maxPost);
+
+        if (currentPage > totalPage) {
+            currentPage = totalPage;
+        }
+
+        const startPage = Math.floor(((currentPage - 1) / maxPage)) * maxPage + 1
+        let endPage = startPage + maxPage - 1;
+
+        if (endPage > totalPage) {
+            endPage = totalPage;
+        }
+
+        return { startPage, endPage, hidePost, maxPost, totalPage, currentPage };
+    }
+
+    try {
+        const totalPost = await Notice.countDocuments({});
+        let {
+            startPage,
+            endPage,
+            hidePost,
+            maxPost,
+            totalPage,
+            currentPage
+        } = paging(page, totalPost);
+
+        const notices = await Notice.find({}).sort({ createdAt:"desc" })
+            .skip(hidePost)
+            .limit(maxPost);
+        res.render("notice/home", { notices, currentPage, startPage, endPage, maxPost, totalPage});
+
+    } catch(error) {
+        console.log(error);
+        return res.status(400).render("notice/home",{
+            errorMessage:error._message,
+        })
+    }
 }
 
 // 목록의 글을 선택했을 때 그 글을 보여주는 페이지

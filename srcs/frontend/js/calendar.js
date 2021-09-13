@@ -158,7 +158,7 @@ const handleSubmit = async(e) => {
     if (text.value === "") {
         return ;
     }
-    await fetch("/calendar/schedule", {
+    const { status } = await fetch("/calendar/schedule", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -168,8 +168,10 @@ const handleSubmit = async(e) => {
             date: currDate,
         })
     })
-    console.log(text.value);
     text.value = "";
+    if (status === 201) {
+        console.log('Completely Fetched');
+    }
 }
 
 

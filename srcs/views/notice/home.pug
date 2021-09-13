@@ -7,6 +7,16 @@ block content
         ul.notice__home-contents-container
             each notice in notices 
                 +notice(notice)
+        div.pagination-container
+            if startPage > maxPost 
+                a(href=`/notice?page=${startPage - 1}`)
+                    span <
+            -for (let i = startPage; i <= endPage; i++)
+                a(href=`/notice?page=${i}`)
+                    span=i
+            if endPage < totalPage 
+                a(href=`/notice?page=${endPage + 1}`)
+                    span >
         div.notice__home-contents-create
             button
                 a(href="/notice/create") 글쓰기

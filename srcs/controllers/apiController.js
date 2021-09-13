@@ -15,7 +15,7 @@ export const createSchedule = async(req, res) => {
             text,
         });
         schedule.save();
-        return res.end();
+        return res.sendStatus(201);
     } catch (error) {
         return res.status(400).render("calendar/home", {
             errorMessage:error._message,
@@ -28,6 +28,7 @@ export const deleteSchedule = async(req,res) => {
     
     try {
         await Schedule.findByIdAndDelete(id);
+        return res.sendStatus(200);
     } catch (error) {
         return res.status(400).render("calendar/home", {
             errorMessage:error._message,
