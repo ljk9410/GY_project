@@ -5,7 +5,6 @@ const storySchema = new mongoose.Schema({
     title: { type:String, required:true, trim:true },
     desc: { type:String, required:true, trim:true },
     createdAt: { type:Date, required:true, default:Date.now },
-    views: { type:Number, default: 0, required:true }
 });
 
 storySchema.static('filePath', function(files) {
