@@ -63,7 +63,9 @@ export const showNoticeContent = async (req, res) => {
 }
 
 export const getCreate = (req, res) => {
-    res.render("notice/create");
+    if (!req.session.loggedIn)
+        return res.status(401).redirect("/notice");
+    return res.render("notice/create");
 }
 
 export const postCreate = async (req, res) => {
@@ -88,7 +90,9 @@ export const getUpdate = async (req, res) => {
     const { id } = req.params;
     const notice = await Notice.findById(id);
 
-    res.render("notice/update", { notice });
+    if (!req.session.loggedIn)
+        return res.status(401).redirect("/notice");
+    return res.render("notice/update", { notice });
 }
 
 export const postUpdate = async (req, res) => {
@@ -108,6 +112,8 @@ export const postUpdate = async (req, res) => {
 export const deleteNoticeContent = async (req, res) => {
     const { id } = req.params;
     
+    if (!req.session.loggedIn)
+        return res.status(401).redirect("/notice");
     await Notice.findByIdAndDelete(id);
-    res.redirect(`/notice`);
+    return res.redirect(`/notice`);
 }

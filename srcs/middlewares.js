@@ -15,6 +15,5 @@ export const storyUpload = multer({ storage })
 
 export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = Boolean(req.session.loggedIn);
-  console.log(req.session);
   next();
 }

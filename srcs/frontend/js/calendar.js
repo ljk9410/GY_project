@@ -108,7 +108,7 @@ function handleModal() {
 
     const drawCalendarModal = (e) => {
         const modalTitle = document.querySelector(".calendar__schedule-form-modal-title");
-        const date = e.target.dataset.date;
+        const date = e.currentTarget.dataset.date;
         const title = `${(date || '').split("-")[0]}년 ${(date || '').split("-")[1]}월 ${(date || '').split("-")[2]}일`
         const scheduleList = document.querySelector(".calendar__schedule-modal-list");
         const scheduleListItems = e.target.querySelectorAll("li");

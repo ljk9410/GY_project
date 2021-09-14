@@ -8,7 +8,9 @@ export const storyHome = async (req, res) => {
 }
 
 export const getCreate = (req, res) => {
-    res.render("story/create");
+    if (!req.session.loggedIn)
+        return res.status(401).redirect("/story");
+    return res.render("story/create");
 }
 
 export const postCreate = async (req, res) => {
@@ -42,7 +44,9 @@ export const getUpdate = async (req, res) => {
     const { id } = req.params;
     const story = await Story.findById(id);
 
-    res.render("story/update", { story });
+    if (!req.session.loggedIn)
+        return res.status(401).redirect("/story");
+    return res.render("story/update", { story });
 }
 export const postUpdate = (req, res) => {
     res.end();
@@ -60,5 +64,7 @@ export const deleteContent = async (req, res) => {
     }
     await Story.findByIdAndDelete(id);
 
-    res.redirect(`/story`);
+    if (!req.session.loggedIn)
+        return res.status(401).redirect("/story");
+    return res.redirect(`/story`);
 }

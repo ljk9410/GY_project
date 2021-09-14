@@ -7,8 +7,9 @@ block content
             p.notice__content-meta #{new Date(notice.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} | 조회수 #{notice.views}
         pre.notice__content-desc=notice.desc
         div
-            a(href=`${notice._id}/update`) 글 수정하기
-        div
-            a(href=`${notice._id}/delete`) 글 삭제하기
-        div
             a(href=`/notice`) 목록
+        if loggedIn
+            div
+                a(href=`${notice._id}/update`) 글 수정하기
+            div
+                a(href=`${notice._id}/delete`) 글 삭제하기

@@ -5,7 +5,7 @@ block content
     div.story__item-container
         each story in stories 
             +story(story)
-
-    a(href="/story/create") 글 작성하기
+    if loggnedIn
+        a(href="/story/create") 글 작성하기
 
 block scripts 

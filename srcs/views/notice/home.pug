@@ -17,8 +17,9 @@ block content
             if endPage < totalPage 
                 a(href=`/notice?page=${endPage + 1}`)
                     span >
-        div.notice__home-contents-create
-            button
-                a(href="/notice/create") 글쓰기
+        if loggedIn
+            div.notice__home-contents-create
+                button
+                    a(href="/notice/create") 글쓰기
 block scripts 
     script(src="/assets/js/api.js") 
