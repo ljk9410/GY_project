@@ -4,6 +4,7 @@ import session from "express-session";
 import rootRouter from './routers/rootRouter';
 import noticeRouter from './routers/noticeRouter';
 import storyRouter from './routers/storyRouter';
+import calendarRouter from './routers/calendarRouter';
 import apiRouter from './routers/apiRouter';
 import { localsMiddleware } from './middlewares';
 
@@ -26,5 +27,6 @@ app.use(localsMiddleware);
 app.use("/", rootRouter);
 app.use("/notice", noticeRouter);
 app.use("/story", storyRouter)
-app.use("/calendar", apiRouter);
+app.use("/calendar", calendarRouter);
+app.use("/api", apiRouter);
 export default app;

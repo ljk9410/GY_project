@@ -1,3 +1,4 @@
+import Notice from "../models/Notice";
 import Schedule from "../models/Schedule";
 
 export const calendar = async (req, res) => {
@@ -34,4 +35,16 @@ export const deleteSchedule = async(req,res) => {
             errorMessage:error._message,
         })
     }
+}
+
+export const noticeView = async(req, res) => {
+    const { id } = req.params;
+    const notice = await Notice.findById(id);
+
+    if (!notice) {
+        res.sendStatus(404);
+    }
+    notice.views += 1;
+    await notice.save();
+    return res.sendStatus(201);
 }

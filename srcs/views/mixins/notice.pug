@@ -1,6 +1,6 @@
 mixin notice(notice)
     li.notice__home-contents-item
-        a(href=`/notice/${notice._id}`).notice__home-contents-item-link
+        a(href=`/notice/${notice._id}` data-id=notice._id).notice__home-contents-item-link
             div
                 p [공지]
                 h3=notice.title
