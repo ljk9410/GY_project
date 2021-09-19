@@ -111,7 +111,7 @@ function handleModal() {
         const date = e.currentTarget.dataset.date;
         const title = `${(date || '').split("-")[0]}년 ${(date || '').split("-")[1]}월 ${(date || '').split("-")[2]}일`
         const scheduleList = document.querySelector(".calendar__schedule-modal-list");
-        const scheduleListItems = e.target.querySelectorAll("li");
+        const scheduleListItems = e.currentTarget.querySelectorAll("li");
         let htmls = '';
 
         if (scheduleListItems.length) {
@@ -134,8 +134,6 @@ function handleModal() {
     overlay.addEventListener("click", closeModal);
 }
  
-
-
 // server에 form data 넘기기
 let currDate;
 
@@ -237,6 +235,12 @@ const prevBtnHandler = () => {
     btn.addEventListener("click", handleSubmit);
     handleSchedules();
     handleDeleteBtn()
+    const deleteBtn = document.querySelectorAll(".schedule-deleteBtn");
+    if (form.dataset.login === "false") {
+        deleteBtn.forEach(btn => {
+            btn.classList.add("hidden");
+        })
+    }
 }
 const nextBtnHandler = () => {
     calendarDate.setMonth(calendarDate.getMonth() + 1);
@@ -247,11 +251,13 @@ const nextBtnHandler = () => {
     btn.addEventListener("click", handleSubmit);
     handleSchedules();
     handleDeleteBtn()
+    const deleteBtn = document.querySelectorAll(".schedule-deleteBtn");
+    if (form.dataset.login === "false") {
+        deleteBtn.forEach(btn => {
+            btn.classList.add("hidden");
+        })
+    }
 }
-
-
-
-
 
 buildCalendar();
 handleModal();
@@ -263,5 +269,12 @@ nextBtn.addEventListener('click', nextBtnHandler);
 btn.addEventListener("click", handleSubmit);
 
 
-
+// loggin form, deleteBtn 가리기
+const deleteBtn = document.querySelectorAll(".schedule-deleteBtn");
+if (form.dataset.login === "false") {
+    form.classList.add("hidden");
+    deleteBtn.forEach(btn => {
+        btn.classList.add("hidden");
+    })
+}
 

@@ -24,7 +24,9 @@ app.use(session({
     cookie: {
         maxAge: 86400000, // 1일 뒤 cookie 만료
     },
-    store: MongoStore.create({ mongoUrl:process.env.DB_URL })
+    store: MongoStore.create({ 
+        mongoUrl:process.env.DB_URL,
+    })
 }))
 app.use(localsMiddleware);
 

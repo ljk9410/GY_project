@@ -12,3 +12,6 @@ header
                 a(href="/story").menu__link STORY
             li.menu__item
                 a(href="/calendar").menu__link CALENDAR
+            if !loggedIn
+                li.menu__item
+                    a(href="/login").menu__link LOGIN 
