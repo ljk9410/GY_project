@@ -1,8 +1,28 @@
-extends base
-
-block background
-    if !loggedIn
-        div.background
-            div.background-text
-                p Real Life 
-                p 경제연구회
+doctype html
+html(lang="ko")
+    head
+        meta(charset="UTF-8")
+        title 경연
+        // 임시 디자인
+        //- link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+        //- fontawesome
+        link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous")
+        link(rel="stylesheet" href="/assets/css/styles.css")
+    body
+        main
+            section
+                div.main-page__container
+                    div.main-page__logo(style=`background-image: url(/uploads/로고.png)`)
+                    div.main-page__sub-title 참 삶의 배움터
+                    div.main-page__title 경제연구회
+            section
+                div.type-effect-container
+                    p 경제연구회는  
+                        span.typed-text
+                        span.cursor &nbsp;
+                        span  입니다
+            section 3
+            section 4
+            section 5
+        script(src="/assets/js/main.js")
+        script(src="/assets/js/homePage.js")

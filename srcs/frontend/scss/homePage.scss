@@ -1,16 +1,84 @@
-// .background {
-//     width: 100%;
-//     height: 100vh;
-//     background-color: black;
-//     opacity: 0.4;
-//     position: absolute;
-//     .background-text {
-//         position: absolute;
-//         color: white;
-//         font-size: 100px;
-//         font-weight: 900;
-//         padding-bottom: 80px;
-//         padding-left: 40px;
-//         bottom: 0;
-//     }
-// }
+main {
+    section {
+        height: 100vh;
+    }
+    section:first-child {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: translateY(-30px);
+        .main-page__container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .main-page__logo {
+            width: 400px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+        }
+        .main-page__sub-title {
+            font-size: 24px;
+            font-weight: 700;
+            animation: fadein 2s;
+        }
+        .main-page__title {
+            font-size: 48px;
+            font-weight: 700;
+            margin-top: 15px;
+            letter-spacing: 15px;
+            animation: fadein 8s;
+        }
+        @keyframes fadein {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    }
+    section:nth-child(2) {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: black;
+        color: white;
+        font-size: 36px;
+        letter-spacing: 3px;
+        text-align: center;
+        .typed-text {
+            font-weight: bold;
+            color: tomato;
+        }
+        .cursor {
+            display: inline-block;
+            width: 2px;
+            background-color: white;
+            margin-left: 2px;
+            animation: blink 1s infinite;
+        }
+        .cursor.typing {
+            animation: none;
+        }
+        @keyframes blink {
+            0% { background-color: white; }
+            49% { background-color: white; }
+            50% { background-color: transparent; }
+            99% { background-color: transparent; }
+            100% { background-color: white; }
+
+        }
+    }
+    section:nth-child(3) {
+        background-color: lightgray;
+    }
+    section:nth-child(4) {
+        background-color:chartreuse
+    }
+    section:nth-child(5) {
+        background-color: tomato;
+    }
+}

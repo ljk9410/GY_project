@@ -1,8 +1,8 @@
 header
     nav
         div.logo__container
-            a(href="/")
-                img(src="/uploads/경연로고.jpg").logo
+            a(href="/") LOGO
+                //- img(src="/uploads/경연로고.jpg").logo
         ul.menu__container
             li.menu__item
                 a(href="/about-us").menu__link ABOUT US
@@ -14,4 +14,5 @@ header
                 a(href="/calendar").menu__link CALENDAR
             if !loggedIn
                 li.menu__item
-                    a(href="/login").menu__link LOGIN 
+                    a(href="/login").menu__link
+                        i.fas.fa-user

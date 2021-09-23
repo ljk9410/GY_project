@@ -1,14 +1,19 @@
 header {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 9999;
     nav {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 20px 30px;
-        margin-bottom: 30px;
+        padding: 10px;
     }
     .logo {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
     .menu__container {
         display: flex;
@@ -18,9 +23,10 @@ header {
             display: block;
             white-space: nowrap;
             padding: 20px;
-            font-size: 18px;
+            font-size: 12px;
             font-weight: 700;
-            color: #5a5858;
+            // color: #5a5858;
+            color: white;
         }
     }
 }
