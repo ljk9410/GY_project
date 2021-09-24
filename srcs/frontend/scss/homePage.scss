@@ -31,12 +31,45 @@ main {
             letter-spacing: 15px;
             animation: fadein 2s;
         }
+        .scroll-down {
+            position: fixed;
+            height: 50px;
+            bottom: 0;
+        }
+        .scroll-down::after, .scroll-down::before {
+            content: "";
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            border: 2px solid black;
+            width: 20px;
+            height: 20px;
+            transform: translate(-50%, -50%) rotate(45deg);
+            border-top: transparent;
+            border-left: transparent;
+            animation: moveArrow 1.2s ease-in-out infinite;
+        }
         @keyframes fadein {
             from {
                 opacity: 0;
             }
             to {
                 opacity: 1;
+            }
+        }
+        @keyframes moveArrow {
+            0% {
+                opacity: 0;
+            }
+            30% {
+                opacity: 1;
+            }
+            60% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                top: 90%;
             }
         }
     }
