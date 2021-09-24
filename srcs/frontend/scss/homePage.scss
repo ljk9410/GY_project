@@ -22,14 +22,14 @@ main {
         .main-page__sub-title {
             font-size: 24px;
             font-weight: 700;
-            animation: fadein 2s;
+            animation: fadein 1s;
         }
         .main-page__title {
             font-size: 48px;
             font-weight: 700;
             margin-top: 15px;
             letter-spacing: 15px;
-            animation: fadein 4s;
+            animation: fadein 2s;
         }
         @keyframes fadein {
             from {
@@ -47,7 +47,7 @@ main {
         align-items: center;
         justify-content: center;
         gap: 40px;
-        font-size: 32px;
+        font-size: 28px;
         white-space: nowrap;
         .second__message-container {
             width: 60%;
@@ -56,11 +56,11 @@ main {
             align-items: center;
             justify-content: center;
             font-weight: 600;
-            text-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            // text-shadow: 2px 2px 2px gray;
             .second__message {
                 opacity: 0;
-                transition: all 1.3s ease;
-                transform: translate(0, 700px);
+                transition: all 1s ease;
+                transform: translate(0, -700px);
             }
             .sa {
                 opacity: 1;
@@ -74,40 +74,63 @@ main {
             box-shadow: rgba(0, 0, 0, 0.09) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
             background-size: cover;
             background-position: top;
+            opacity: 0;
+            transition: all 1.3s ease;
+            transform: translate(0, 700px);
+        }
+        .sa {
+            opacity: 1;
+            transform: none;
         }
     }
 
     section:nth-child(3) {
-        background-color: lightgray;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-weight: 600;
+        
         .nav-container {
             width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 80px;
+            transform: translate(0, -60px);
             div {
                 text-align: center;
-                padding: 20px
+                font-size: 28px;
+                transform: translate(0, -60px);
             }
             ul {
                 display: flex;
-                gap: 20px;
+                gap: 80px;
                 .nav-list {
-                    width: 30%;
-                    height: 50vh;
-                    background-color: black;
+                    width: 33%;
                     opacity: 0;
-                    transition: all 1.7s ease;
+                    transition: all 1.4s ease;
+                    .list-title {
+                        font-size: 18px;
+                        display: block;
+                        text-align: center;
+                        margin-top: 80px;
+                        background-color: #d1ccc0;
+                        padding: 5px;
+                        border-radius: 5px;box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+                    }
+                    .list-img {
+                        padding-bottom: 100%;
+                        background-size:contain;            background-position: bottom;
+                        background-repeat: no-repeat;
+                    }
                 }
                 .sa-left {
                     transform: translate(0, 700px);
-                    // transform: translate(-1400px, 0);
                 }
                 .sa-middle {
                     transform: translate(0, 1400px);
                 }
                 .sa-right {
                     transform: translate(0, 2100px);
-                    // transform: translate(1400px, 0);
                 }
                 .sa {
                     opacity: 1;

@@ -75,6 +75,7 @@ sections.forEach((section, index) => {
         const fourthSection = window.pageYOffset + sections[3].getBoundingClientRect().top;
         const thirdList = document.querySelectorAll(".nav-list");
         const secondMessage = document.querySelectorAll(".second__message");
+        const secondImg = document.querySelector(".second__img");
 
         if (e.wheelDelta)
             delta = e.wheelDelta / 120;
@@ -89,6 +90,7 @@ sections.forEach((section, index) => {
                     secondMessage.forEach(message => {
                         message.classList.add("sa");
                     })
+                    secondImg.classList.add("sa");
                 }
                 
                 // third section effect on
