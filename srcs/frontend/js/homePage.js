@@ -2,9 +2,9 @@
 const typedTextSpan = document.querySelector(".typed-text");
 const cursor = document.querySelector(".cursor");
 
-const textArray = ["술", "선배", "사랑"];
-const typingDelay = 200;
-const erassingDelay = 100;
+const textArray = ["연결고리", "WEB", "술?", "사랑"];
+const typingDelay = 150;
+const erassingDelay = 80;
 const newTextDelay = 800;
 let textArrayIndex = 0;
 let charIndex = 0;
@@ -73,7 +73,7 @@ sections.forEach((section, index) => {
         const secondSection = window.pageYOffset + sections[1].getBoundingClientRect().top;
         const thirdSection = window.pageYOffset + sections[2].getBoundingClientRect().top;
         const fourthSection = window.pageYOffset + sections[3].getBoundingClientRect().top;
-        const thirdList = document.querySelectorAll(".nav-list");
+        const contentList = document.querySelectorAll(".nav-list");
         const secondMessage = document.querySelectorAll(".second__message");
         const secondImg = document.querySelector(".second__img");
 
@@ -87,23 +87,25 @@ sections.forEach((section, index) => {
 
                 // second section effect on
                 if (moveTop === secondSection) {
+                    setTimeout(type, newTextDelay);
+                }
+
+                
+                // third section effect on
+                if (moveTop === thirdSection) {
                     secondMessage.forEach(message => {
                         message.classList.add("sa");
                     })
                     secondImg.classList.add("sa");
                 }
                 
-                // third section effect on
-                if (moveTop === thirdSection) {
-                    thirdList.forEach(list => {
+                // fourth section effect on
+                if (moveTop === fourthSection) {
+                    contentList.forEach(list => {
                         list.classList.add("sa");
                     })
                 }
-
-                // fourth section effect on
-                if (moveTop === fourthSection) {
-                    setTimeout(type, newTextDelay);
-                }
+                
             }
             else {
                 return ;
