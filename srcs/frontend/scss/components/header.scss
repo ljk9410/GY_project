@@ -1,13 +1,13 @@
 header {
     position: fixed;
-    width: 240px;
+    width: 200px;
     height: 100%;
     background-color: #11101d;
-    font-size: 18px;
+    font-size: 16px;
     color: #fff;
     font-weight: 100;
     .logo__container, .menu__container {
-        padding: 10px 15px;
+        padding: 10px 20px;
         margin-top: 5px;
     }
 
@@ -21,7 +21,7 @@ header {
             display: flex;
             .logo__title {
                 margin-left: 5px;
-                font-size: 24px;
+                font-size: 18px;
                 font-weight: 600;
             }
         }
@@ -37,16 +37,39 @@ header {
                 i {
                     width: 27px;
                     text-align: center;
-                    margin-right: 50px;
+                    margin-right: 20px;
                 }
                 .menu__text {
                     font-weight: 600;
                 }
             }
+            .tooltip {
+                font-weight: 600;
+                position: absolute;
+                height: 35px;
+                width: 122px;
+                background-color: #fff;
+                color: #11101d;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                left: 128px;
+                transform: translateY(-60px);
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+                border-radius: 6px;
+                opacity: 0;
+            }
             .menu__link:hover {
                 background-color: #fff;
                 color: #11101d;
                 border-radius: 12px;
+            }
+        }
+        .menu__item:hover {
+            .tooltip {
+                transform: translateY(-46px);
+                transition: 0.3s ease-in;
+                opacity: 1;
             }
         }
     }
