@@ -50,3 +50,11 @@ body {
     font-family: 'KoPubDotumMedium';
     overflow: hidden;
 }
+
+main {
+    position: absolute;
+    box-sizing: border-box;
+    width: calc(100% - 240px);
+    height: 100%;
+    left: 240px;
+}

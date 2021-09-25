@@ -1,18 +1,31 @@
 header
     nav
         div.logo__container
-            a(href="/") LOGO
-                //- img(src="/uploads/경연로고.jpg").logo
+            a(href="#")
+                div.logo Logo 
+                div.logo__title 경제연구회
+            i.fas.fa-bars.menu__toggle
         ul.menu__container
+            //- li.menu__item
+            //-     a(href="/about-us").menu__link ABOUT US
             li.menu__item
-                a(href="/about-us").menu__link ABOUT US
+                a(href="/").menu__link
+                    i.fas.fa-home
+                    span.menu__text HOME
             li.menu__item
-                a(href="/notice").menu__link NOTICE
+                a(href="/calendar").menu__link
+                    i.fas.fa-calendar-alt
+                    span.menu__text CALENDAR
             li.menu__item
-                a(href="/story").menu__link STORY
+                a(href="/notice").menu__link 
+                    i.fas.fa-bullhorn
+                    span.menu__text NOTICE
             li.menu__item
-                a(href="/calendar").menu__link CALENDAR
+                a(href="/story").menu__link 
+                    i.fas.fa-images
+                    span.menu__text STORY
             if !loggedIn
                 li.menu__item
                     a(href="/login").menu__link
                         i.fas.fa-user
+                        span.menu__text LOGIN

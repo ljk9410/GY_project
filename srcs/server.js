@@ -16,6 +16,7 @@ app.set("views", "srcs/views");
 app.use(express.urlencoded({ extended:true }));
 app.use(express.json());
 app.use("/uploads", express.static("uploads"));
+app.use("/images", express.static("images"));
 app.use("/assets", express.static("assets"));
 app.use(session({
     secret: process.env.COOKIE_SECRET,
