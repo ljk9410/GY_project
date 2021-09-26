@@ -8,6 +8,7 @@ module.exports = {
         calendar: "./srcs/frontend/js/calendar.js",
         api: "./srcs/frontend/js/api.js",
         homePage: "./srcs/frontend/js/homePage.js",
+        ui: "./srcs/frontend/js/ui.js",
     },
     mode: 'development',
     watch: true,
