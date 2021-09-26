@@ -4,11 +4,15 @@ block content
     div.calendar
         div.calendar__container
             div.calendar__header
-                button.calendar__btn-prev prev
+                div.calendar__btn-prev
+                    //- i.fas.fa-caret-left
+                    i.fas.fa-chevron-left
                 div.calendar__title
                     div.calendar__year-title
                     div.calendar__month-title
-                button.calendar__btn-next next
+                div.calendar__btn-next
+                    //- i.fas.fa-caret-right
+                    i.fas.fa-chevron-right
             div.calendar__main
                 div.calendar__day-container
                     div.calendar__day(style="color: tomato") 일

@@ -12,10 +12,11 @@
         align-items: center;
         justify-content: center;
         .calendar__header {
+            width: 100%;
             display: flex;
-            justify-content: space-between;
+            height: 12vh;
             align-items: center;
-            padding: 10px 0;
+            font-weight: 600;
             .calendar__title {
                 display: flex;
                 justify-content: center;
@@ -23,6 +24,29 @@
                 gap: 10px;
                 font-size: 24px;
             }
+            div.calendar__btn-prev {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                i {
+                    font-size: 14px;
+                    // font-size: 28px;
+                }
+
+            }
+            div.calendar__btn-next {
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                i {
+                    font-size: 14px;
+                    // font-size: 28px;
+                }
+
+            }
+
         }
         .calendar__main {
             font-size: 12px;
@@ -58,12 +82,12 @@
             }
             .calendar__date-info {
                 width: calc(100% / 7);
-                height: 14vh;
+                height: 13vh;
                 box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
                 border-top: 1px solid rgba(0, 0, 0, 0.15);
-                // border-right: 1px solid rgba(0, 0, 0, 0.15);
+                padding: 0 1px;
                 .calendar__date-info-num {
                     padding: 8px;
                     padding-bottom: 0px;
@@ -76,11 +100,15 @@
                     width: 100%;
                     li {
                         width: 100%;
-                        background-color: #95afc0;
-                        padding: 4px 2px;
+                        background-color: #b2c8d6;
+                        padding: 4px 5px;
                         box-sizing: border-box;
                         margin-bottom: 1px;
                         text-align: start;
+                        border-radius: 6px;
+                    }
+                    li:nth-child(2n) {
+                        background-color: tomato;
                     }
                 }
             }
