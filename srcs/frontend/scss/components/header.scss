@@ -9,7 +9,7 @@
     box-sizing: border-box;
     font-size: 16px;
     color: #fff;
-    font-weight: 100;
+    font-weight: 600;
     white-space: nowrap;
     transition: all 0.5s ease;
     .logo__container {
@@ -22,7 +22,7 @@
             display: flex;
             opacity: 0;
             pointer-events: none;
-            transition: all 0.5s ease;
+            transition: all 0.3s ease;
             .logo__title {
                 margin-left: 5px;
                 font-size: 18px;
@@ -48,12 +48,10 @@
             position: relative;
             height: 50px;
             width: 100%;
-            // margin: 0 5px;
             line-height: 50px;
             .menu__link {
                 display: flex;
                 align-items: center;
-                transition: all 0.4s ease;
                 border-radius: 12px;
                 i {
                     min-width: 50px;
@@ -91,7 +89,7 @@
         }
         .menu__item:hover {
             .tooltip {
-                transition: all 0.4s ease;
+                transition: all 0.5s ease;
                 top: 50%;
                 opacity: 1;
             }
@@ -99,8 +97,8 @@
     }
 }
 
-.nav-active {
-    width: 240px;
+.nav-active__header {
+    width: 200px;
     transition: all 0.5s ease;
     .logo__container {
         .menu__toggle {
@@ -110,6 +108,7 @@
     .logo__container {
         a {
             opacity: 1;
+            transition: all 0.7s ease;
         }
     }
     .menu__container {
@@ -118,6 +117,7 @@
                 .menu__text {
                     opacity: 1;
                     pointer-events: auto;
+                    transition: all 0.4s ease;
                 }
             }
             .tooltip {

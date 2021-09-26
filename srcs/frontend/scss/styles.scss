@@ -52,11 +52,18 @@ body {
     position: relative;
 }
 
-main {
+.main__container {
     position: relative;
     z-index: -1;
     box-sizing: border-box;
-    width: calc(100% - 240px);
+    width: calc(100% - 78px);
     height: 100%;
-    left: 240px;
+    left: 78px;
+    transition: all 0.5s ease;
+}
+
+.nav-active__main {
+    width: calc(100% - 200px);
+    left: 200px;
+    transition: all 0.5s ease;
 }
