@@ -2,32 +2,33 @@ extends ../base
 
 block content 
     div.calendar
-        div.calendar__header
-            button.calendar__btn-prev prev
-            div.calendar__title
-                div.calendar__year-title
-                div.calendar__month-title
-            button.calendar__btn-next next
-        div.calendar__main
-            div.calendar__day-container
-                div.calendar__day 일
-                div.calendar__day 월
-                div.calendar__day 화
-                div.calendar__day 수
-                div.calendar__day 목
-                div.calendar__day 금
-                div.calendar__day 토
-            div.calendar__date-container
-            ul.calendar__date-info-scheduleData-list
-                each schedule in schedules
-                    li.scheduleData(data-id=schedule._id data-text=schedule.text data-date=schedule.date)
-        div.calendar__schedule.hidden
-            div.calendar__schedule-form-overlay
-            div.calendar__schedule-form-modal
-                div.calendar__schedule-form-modal-title
-                ul.calendar__schedule-modal-list
-                form.calendar__schedule-form(data-login=`${loggedIn}`)
-                    input(type="text" name="schedule" placeholder="일정을 적어주세요")
-                    button 추가하기
+        div.calendar__container
+            div.calendar__header
+                button.calendar__btn-prev prev
+                div.calendar__title
+                    div.calendar__year-title
+                    div.calendar__month-title
+                button.calendar__btn-next next
+            div.calendar__main
+                div.calendar__day-container
+                    div.calendar__day(style="color: tomato") 일
+                    div.calendar__day 월
+                    div.calendar__day 화
+                    div.calendar__day 수
+                    div.calendar__day 목
+                    div.calendar__day 금
+                    div.calendar__day 토
+                div.calendar__date-container
+                ul.calendar__date-info-scheduleData-list
+                    each schedule in schedules
+                        li.scheduleData(data-id=schedule._id data-text=schedule.text data-date=schedule.date)
+            div.calendar__schedule.hidden
+                div.calendar__schedule-form-overlay
+                div.calendar__schedule-form-modal
+                    div.calendar__schedule-form-modal-title
+                    ul.calendar__schedule-modal-list
+                    form.calendar__schedule-form(data-login=`${loggedIn}`)
+                        input(type="text" name="schedule" placeholder="일정을 적어주세요")
+                        button 추가하기
 block scripts 
     script(src="/assets/js/calendar.js")

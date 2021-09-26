@@ -54,10 +54,10 @@ body {
 
 .main__container {
     position: relative;
-    z-index: -1;
+    z-index: 1;
     box-sizing: border-box;
     width: calc(100% - 78px);
-    height: 100%;
+    height: 100vh;
     left: 78px;
     transition: all 0.5s ease;
 }

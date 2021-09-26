@@ -1,4 +1,5 @@
 .nav__container {
+    z-index: 3;
     width: 78px;
     height: 100%;
     background-color: #11101d;
@@ -70,8 +71,8 @@
                 color: #11101d;
             }
             .tooltip {
+                z-index: 2;
                 position: absolute;
-                z-index: 1;
                 width: 122px;
                 height: 35px;
                 top: 0;
