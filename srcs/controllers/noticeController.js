@@ -9,7 +9,7 @@ export const noticeHome = async (req, res) => {
         page = 1;
 
     function paging(page, totalPost) {
-        const maxPost = 10;
+        const maxPost = 7;
         const maxPage = 5;
         let currentPage = page ? parseInt(page) : 1;
         const hidePost = page === 1 ? 0 : (page - 1) * maxPost;
@@ -43,7 +43,8 @@ export const noticeHome = async (req, res) => {
         const notices = await Notice.find({}).sort({ createdAt:"desc" })
             .skip(hidePost)
             .limit(maxPost);
-        res.render("notice/home", { notices, currentPage, startPage, endPage, maxPost, totalPage});
+        res.locals.currPage = page;
+        res.render("notice/home", { notices, currentPage, startPage, endPage, maxPost, totalPage });
 
     } catch(error) {
         console.log(error);

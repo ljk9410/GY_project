@@ -1,61 +1,94 @@
-.notice__home-container {
-    h2 {
-        font-size: 32px;
-        padding: 5px 0;
-    }
-    .notice__home-contents-container {
-        border-top: 2px solid black;
-        .notice__home-contents-item {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-            .notice__home-contents-item-link {
-                display: block;
-                padding: 25px 25px 20px;
-                div {
-                    display: flex;
-                    align-items: center;
-                    p {
-                        color: #eb4d4b;
-                        font-size: 18px;
-                        font-weight: 600;
-                        margin-right: 8px;
-                        white-space: nowrap;
+.notice {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    .notice__home-container {
+        width: 90%;
+        height: 85vh;
+        max-width: 1000px;
+        h2 {
+            font-size: 24px;
+            padding: 2vh 0;
+        }
+        .notice__home-contents-container {
+            border-top: 2px solid black;
+            .notice__home-contents-item {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                .notice__home-contents-item-link {
+                    display: block;
+                    padding: 2vh 20px;
+                    div {
+                        display: flex;
+                        align-items: center;
+                        margin-bottom: 15px;
+                        p {
+                            color: #eb4d4b;
+                            font-size: 16px;
+                            margin-right: 8px;
+                            white-space: nowrap;
+                        }
+                        h3 {
+                            font-size: 16px;
+                            font-weight: 600;
+                        }
                     }
-                    h3 {
-                        font-size: 18px;
-                        font-weight: 600;
+                    .notice__home-contents-meta {
+                        color: rgba(0, 0, 0, 0.4);
+                        font-size: 10px;
                     }
-                }
-                .notice__home-contents-meta {
-                    margin-top: 15px;
-                    color: rgba(0, 0, 0, 0.4);
-                    font-size: 12px;
-                    font-weight: 600;
                 }
             }
+            .notice__home-contents-item:hover {
+                background-color: #1e72c041;
+            }
         }
-    }
-    .notice__home-contents-create {
-        display: flex;
-        flex-direction: row-reverse;
-        margin: 10px;
-        button {
-            border: none;
-            border-radius: 5px;
-            background-color: rgba(131, 133, 131, 0.5);
-        }
-        button:hover {
-            background-color: rgba(131, 133, 131, 0.7);
-        }
-        a {
-            // font-family: 'EliceDigitalBaeum_Bold';
-            font-family: 'KoPubDotumMedium';
-            display: block;
-            width: 80px;
-            padding: 10px 0;
+        .pagination-container {
+            height: 30px;
+            line-height: 30px;
             text-align: center;
-            color: white;
-            font-size: 14px;
-            font-weight: 600;
+            .page {
+                font-size: 14px;
+                padding: 4px 6px;
+                margin: 0 4px;
+                i {
+                    font-size: 12px;
+                }
+            }
+            .page-prevBtn {
+                padding: 0 14px;
+            }
+            .page-nextBtn {
+                padding: 0 14px;
+            }
+            .currPage {
+                display: none;
+            }
+            .on {
+                color: #1E71C0;
+                border-bottom: 2px solid #1E71C0;
+            }
+            .page:hover {
+                color: #1E71C0;
+                border-bottom: 2px solid #1E71C0;
+            }
+        }
+        .notice__home-contents-create {
+            position: relative;
+            a {
+                position: absolute;
+                right: 0;
+                padding: 10px 20px;
+                background-color: #1e72c041;
+                border-radius: 6px;
+                opacity: 0.7;
+            }
+            a:hover {
+                opacity: 1;
+            }
         }
     }
 }

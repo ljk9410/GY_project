@@ -2,24 +2,25 @@ extends ../base
 include ../mixins/notice
 
 block content
-    div.notice__home-container
-        h2 공지사항
-        ul.notice__home-contents-container
-            each notice in notices 
-                +notice(notice)
-        div.pagination-container
-            if startPage > maxPost 
-                a(href=`/notice?page=${startPage - 1}`)
-                    span <
-            -for (let i = startPage; i <= endPage; i++)
-                a(href=`/notice?page=${i}`)
-                    span=i
-            if endPage < totalPage 
-                a(href=`/notice?page=${endPage + 1}`)
-                    span >
-        if loggedIn
-            div.notice__home-contents-create
-                button
+    div.notice
+        div.notice__home-container
+            h2 공지사항
+            ul.notice__home-contents-container
+                each notice in notices 
+                    +notice(notice)
+            div.pagination-container
+                if startPage > maxPost 
+                    a.page-prevBtn(href=`/notice?page=${startPage - 1}`)
+                        i.fas.fa-chevron-left
+                -for (let i = startPage; i <= endPage; i++)
+                    a.page(href=`/notice?page=${i}` data-page=`${i}`)
+                        span=i
+                if endPage < totalPage 
+                    a.page-nextBtn(href=`/notice?page=${endPage + 1}`)
+                        i.fas.fa-chevron-right
+                span.currPage=currPage
+            if loggedIn
+                div.notice__home-contents-create
                     a(href="/notice/create") 글쓰기
 block scripts 
-    script(src="/assets/js/api.js") 
+    script(src="/assets/js/api.js")
