@@ -32,7 +32,7 @@ block content
                     div.calendar__schedule-form-modal-title
                     ul.calendar__schedule-modal-list
                     form.calendar__schedule-form(data-login=`${loggedIn}`)
-                        input(type="text" name="schedule" placeholder="일정을 적어주세요")
-                        button 추가하기
+                        input.calendar__form-input(type="text" name="schedule" placeholder="일정을 적어주세요")
+                        input.calendar__form-submit(type="submit" value="추가하기")
 block scripts 
     script(src="/assets/js/calendar.js")

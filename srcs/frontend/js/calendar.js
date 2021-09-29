@@ -148,8 +148,8 @@ const getScheduleDate = () => {
 }
 
 const form = document.querySelector(".calendar__schedule-form");
-const text = document.querySelector("input");
-const btn = form.querySelector("button");
+const text = form.querySelector(".calendar__form-input");
+const btn = form.querySelector(".calendar__form-submit");
 
 const handleSubmit = async(e) => {
     e.preventDefault();

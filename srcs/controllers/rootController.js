@@ -24,5 +24,5 @@ export const postLogin = async(req, res) => {
         req.session.loggedIn = true;
     }
     
-    res.redirect("/");
+    res.redirect("/calendar");
 }

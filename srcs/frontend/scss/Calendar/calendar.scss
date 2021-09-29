@@ -3,10 +3,12 @@
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: center;
+
     .calendar__container {
         width: 90%;
+        height: 100%;
         max-width: 1200px;
-        margin: 0 auto;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -14,7 +16,7 @@
         .calendar__header {
             width: 100%;
             display: flex;
-            height: 12vh;
+            height: 13vh;
             align-items: center;
             font-weight: 600;
             .calendar__title {
@@ -82,7 +84,7 @@
             }
             .calendar__date-info {
                 width: calc(100% / 7);
-                height: 13vh;
+                height: 12vh;
                 box-sizing: border-box;
                 display: flex;
                 flex-direction: column;
@@ -106,6 +108,9 @@
                         margin-bottom: 1px;
                         text-align: start;
                         border-radius: 6px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
                     }
                     li:nth-child(2n) {
                         background-color: tomato;
@@ -123,9 +128,7 @@
         .calendar__schedule {
             width: 100%;
             height: 100%;
-            position: fixed;
-            top: 0;
-            left: 0;
+            position: absolute;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -137,39 +140,57 @@
             .calendar__schedule-form-modal{
                 background-color: white;
                 position: fixed;
-                width: 50vw;
-                height: 60vh;
-                max-width: 450px;
+                width: 40vw;
+                height: 50vh;
+                max-width: 350px;
                 max-height: 700px;
                 border-radius: 7px;
+                padding: 30px;
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                align-items: center;
                 .calendar__schedule-form-modal-title {
-                    font-size: 24px;
+                    font-size: 22px;
                     font-weight: 600;
-                    padding: 20px;
+                    width: 100%;
+                    margin-bottom: 50px;
+                    text-align: center;
+                    box-sizing: border-box;
                 }
                 .calendar__schedule-modal-list {
-                    flex-grow: 1;
-                    align-self: flex-start;
-                    padding: 20px;
-                    font-size: 18px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
                     li {
-                        margin-bottom: 25px;
+                        background-color: #b2c8d6;
+                        padding: 6px 8px;
+                        margin-bottom: 2px;
+                        border-radius: 6px;
+                        box-sizing: border-box;
+                        span {
+                            display: none;
+                        }
+                    }
+                    li:nth-child(2n) {
+                        background-color: tomato;
                     }
                 }
                 .calendar__schedule-form {
-                    width: 100%;
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
                     border: none;
+                    width: 100%;
+                    box-sizing: border-box;
                     input {
                         all: unset;
-                        padding: 10px 0;
                     }
-                    button {
-                        height: 40px;
+                    input[type="submit"] {
+                        width: 100%;
+                        padding: 5px 0;
+                        background-color: lightgray;
+                        text-align: center;
+                        border-radius: 6px;
                     }
                 }
             }
