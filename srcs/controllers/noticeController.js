@@ -9,7 +9,7 @@ export const noticeHome = async (req, res) => {
         page = 1;
 
     function paging(page, totalPost) {
-        const maxPost = 7;
+        const maxPost = 8;
         const maxPage = 5;
         let currentPage = page ? parseInt(page) : 1;
         const hidePost = page === 1 ? 0 : (page - 1) * maxPost;

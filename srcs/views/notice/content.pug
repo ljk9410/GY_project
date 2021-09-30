@@ -2,14 +2,15 @@ extends ../base
 
 block content
     article.notice__content-container
-        div.notice__content-header
-            h3=notice.title
-            p.notice__content-meta #{new Date(notice.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} | 조회수 #{notice.views}
-        pre.notice__content-desc=notice.desc
-        div
-            a(href=`/notice`) 목록
-        if loggedIn
-            div
-                a(href=`${notice._id}/update`) 글 수정하기
-            div
-                a(href=`${notice._id}/delete`) 글 삭제하기
+        div.notice__content-wrap
+            div.notice__content-header
+                h2=notice.title
+                p.notice__content-meta #{new Date(notice.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})} | 조회수 #{notice.views}
+            pre.notice__content-desc=notice.desc
+            div.notice__content-listBtn
+                a(href=`/notice`) 목록
+            if loggedIn
+                div
+                    a(href=`${notice._id}/update`) 글 수정하기
+                div
+                    a(href=`${notice._id}/delete`) 글 삭제하기
