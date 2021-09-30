@@ -1,7 +1,8 @@
 extends ../base
 
 block content 
-    form(method="POST")
-        input(type="text" value=notice.title name="title")
-        textarea(name="desc") #{notice.desc}
-        input(type="submit" value="Submit")
+    div.form__container
+        form(method="POST")
+            input(type="text" value=notice.title name="title")
+            textarea(name="desc") #{notice.desc}
+            input(type="submit" value="수정하기")

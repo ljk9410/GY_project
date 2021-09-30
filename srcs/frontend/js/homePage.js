@@ -49,7 +49,7 @@ function type() {
 
 // scroll event
 // scroll 제어
-function throttle(callback, limit = 100) {
+function throttle(callback, limit = 4000) {
     let waiting = false
     return function() {
         if(!waiting) {
@@ -68,6 +68,7 @@ const sectionCount = sections.length;
 sections.forEach((section, index) => {
     section.addEventListener('mousewheel', throttle((e) => {
         // e.preventDefault();
+        console.log("scroll");
         let delta = 0;
         let moveTop = window.scrollY;
         const secondSection = window.pageYOffset + sections[1].getBoundingClientRect().top;
@@ -122,5 +123,5 @@ sections.forEach((section, index) => {
         }
         window.scrollTo({top:moveTop, left:0, behavior:'smooth'});
         
-    }, 100))
+    }, 4000))
 })
