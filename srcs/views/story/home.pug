@@ -4,11 +4,11 @@ include ../mixins/story
 block content
     div.story
         div.story__wrap
-            h2 Story
+            //- h2 Story
             div.story__item-container
                 each story in stories 
                     +story(story)
             if loggedIn
-                div
-                    a(href="/story/create") 글 작성하기
+                //- div
+                //-     a(href="/story/create") 글 작성하기
 block scripts 
