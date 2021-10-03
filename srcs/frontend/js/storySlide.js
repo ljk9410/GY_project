@@ -8,7 +8,9 @@ const slidePage = document.querySelector('.story__content-slide-pagination');
 
 // Slide List
 // width 값이 소수점일 때 문제가 발생 -> 새롭게 image를 랜더링해주면 되지 않을까?
-let slideWidth = Math.floor(slideBox.offsetWidth);
+
+// let slideWidth = Math.floor(slideBox.offsetWidth);
+let slideWidth = 600;
 let slideLen = slideContent.length;
 slideContent.forEach((element => {
     element.style.cssText += `

@@ -3,27 +3,31 @@ extends ../base
 block content
     article.story__content-container
         div.story__content-slide-wrap
+            div.story__content-title
+                h2=story.title
             div.story__content-slide-box
+                div.story__content-slide-btn
+                    dib.story__content-slide-prevBtn
+                        i.fas.fa-chevron-left
+                    div.story__content-slide-nextBtn
+                        i.fas.fa-chevron-right
+                        //- i.fas.fa-caret-right
                 ul.story__content-slide-list
                     each photo in story.fileUrl 
                         div.story__content-slide-content(style=`background-image: url(/uploads/${photo.substring(8)})`)
                             img(src=`/${photo}`)
                         //- li.story__content-slide-content
                         //-     img(src=`/${photo}`)
-            div.slide-pagination-container
-                ul.story__content-slide-pagination
-            div.story__content-slide-btn
-                button.story__content-slide-prevBtn Prev
-                div.for-style style
-                button.story__content-slide-nextBtn Next
-            div
-                h2=story.title 
-                p=story.desc 
-                small=story.createdAt
-        if loggedIn
-            div
-                a(href=`${story._id}/update`) 글 수정하기
-            div
-                a(href=`${story._id}/delete`) 글 삭제하기
+            div.story__content-desc-container
+                div.slide-pagination-container
+                    ul.story__content-slide-pagination
+                div.story__content-desc
+                    pre=story.desc 
+                    small #{new Date(story.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}
+        //- if loggedIn
+        //-     div
+        //-         a(href=`${story._id}/update`) 글 수정하기
+        //-     div
+        //-         a(href=`${story._id}/delete`) 글 삭제하기
 block scripts 
     script(src="/assets/js/storySlide.js") 
