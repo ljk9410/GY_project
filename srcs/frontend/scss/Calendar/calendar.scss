@@ -68,7 +68,9 @@
                     color: lightgray;
                 }
                 .today {
-                    // 색 지정하기
+                    background-color: #1e72c0b0;
+                    background-color: rgba(255, 99, 71, 0.8);
+                    border-radius: 5px;
                 }
             }
             .calendar__day {
@@ -90,8 +92,8 @@
                 border-top: 1px solid rgba(0, 0, 0, 0.15);
                 padding: 0 1px;
                 .calendar__date-info-num {
-                    padding: 8px;
-                    padding-bottom: 0px;
+                    padding: 4px 8px;
+                    // padding-bottom: 0px;
                     width: 100%;
                     text-align: center;
                     box-sizing: border-box;
@@ -113,7 +115,7 @@
                         justify-content: space-between;
                     }
                     li:nth-child(2n) {
-                        background-color: tomato;
+                        background-color: #1e72c041;
                     }
                 }
             }
@@ -172,7 +174,7 @@
                         }
                     }
                     li:nth-child(2n) {
-                        background-color: tomato;
+                        background-color: #b2c8d6;
                     }
                 }
                 .calendar__schedule-form {
