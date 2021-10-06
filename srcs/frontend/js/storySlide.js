@@ -88,4 +88,4 @@ slideNextBtn.addEventListener("click", slideNext);
 // resize할 때 어떤게 다시 resize 되어야 하는가?
 // translateX 의 값이 이상하게 변하기 떄문에 제대로 작동 X
 // 일단은 고정 px로 만들어두기
-window.addEventListener('resize', resizeSlide);
+// window.addEventListener('resize', resizeSlide);

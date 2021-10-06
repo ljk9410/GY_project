@@ -203,6 +203,9 @@ function handleDeleteBtn() {
 
     const handleDelete = async(e) => {
         e.stopPropagation();
+        let confirm = window.confirm("삭제하시겠습니까?");
+        if (confirm) console.log("delete");
+
         e.target.parentNode.remove();
         const id = e.target.dataset.id;
 

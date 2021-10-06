@@ -13,4 +13,4 @@ block content
                 div
                     a(href=`${notice._id}/update`) 글 수정하기
                 div
-                    a(href=`${notice._id}/delete`) 글 삭제하기
+                    a(href=`${notice._id}/delete` onclick=`return confirm("삭제하시겠습니까?")`) 글 삭제하기
