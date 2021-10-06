@@ -16,18 +16,16 @@ block content
                     each photo in story.fileUrl 
                         div.story__content-slide-content(style=`background-image: url(/uploads/${photo.substring(8)})`)
                             img(src=`/${photo}`)
-                        //- li.story__content-slide-content
-                        //-     img(src=`/${photo}`)
             div.story__content-desc-container
                 div.slide-pagination-container
                     ul.story__content-slide-pagination
                 div.story__content-desc
                     pre=story.desc 
                     small #{new Date(story.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}
-        //- if loggedIn
-        //-     div
-        //-         a(href=`${story._id}/update`) 글 수정하기
-        //-     div
-        //-         a(href=`${story._id}/delete`) 글 삭제하기
+            if loggedIn
+                div
+                    a(href=`${story._id}/update`) 글 수정하기
+                div
+                    a(href=`${story._id}/delete`) 글 삭제하기
 block scripts 
     script(src="/assets/js/storySlide.js") 

@@ -4,5 +4,5 @@ mixin story(story)
             div.story__item-img(style=`background-image: url(/uploads/${story.fileUrl[0].substring(8)})`)
                 img(src=`${story.fileUrl[0]}`)
             div.story__img-overlay
-                span=story.desc
-        //- figcaption.story__item-title=story.title
+                span=story.title
+        

@@ -13,7 +13,9 @@
     input {
         all: unset;
     }
-
+    input[type="file"] {
+        padding: 20px 0;
+    }
     input[type="text"] {
         border-bottom: 1px solid gray;
         padding: 15px 20px 25px 20px;
