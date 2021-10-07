@@ -69,8 +69,8 @@ function buildCalendar() {
             today.getFullYear() === calendarDate.getFullYear()
             ) {
             htmlDates += `
-            <div class="calendar__date-info" data-date="${dateData}">
-                <div class="calendar__date-info-num today">${dates[i]}</div>
+            <div class="calendar__date-info today" data-date="${dateData}">
+                <div class="calendar__date-info-num">${dates[i]}</div>
                 <ul class="calendar__date-info-schedule"></ul>
             </div>
             `

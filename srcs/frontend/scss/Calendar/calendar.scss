@@ -68,9 +68,11 @@
                     color: lightgray;
                 }
                 .today {
-                    background-color: #1e72c0b0;
-                    background-color: rgba(255, 99, 71, 0.8);
-                    border-radius: 5px;
+                    border: 2px solid rgba(255, 99, 71, 0.644);
+                    border-radius: 10px;
+                    // background-color: #1e72c0b0;
+                    // background-color: rgba(255, 99, 71, 0.8);
+                    // border-radius: 5px;
                 }
             }
             .calendar__day {
