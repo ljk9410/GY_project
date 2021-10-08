@@ -10,8 +10,6 @@ module.exports = {
         homePage: "./srcs/frontend/js/homePage.js",
         ui: "./srcs/frontend/js/ui.js",
     },
-    mode: 'development',
-    watch: true,
     plugins: [new MiniCssExtractPlugin({
         filename: "css/styles.css"
     })],

@@ -4,8 +4,12 @@
   "description": "경연인을 위한 웹사이트 제작 프로젝트",
   "main": "index.js",
   "scripts": {
+    "start": "node build/init.js",
+    "build": "npm run build:server && npm run build:assets",
+    "build:server": "babel srcs -d build --ignore srcs/frontend",
+    "build:assets": "webpack --mode=production",
     "dev:server": "nodemon",
-    "dev:assets": "webpack --config webpack.config.js"
+    "dev:assets": "webpack --mode=development -w"
   },
   "repository": {
     "type": "git",
@@ -29,6 +33,7 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.15.7",
     "@babel/core": "^7.14.8",
     "@babel/node": "^7.14.7",
     "@babel/preset-env": "^7.14.8",
