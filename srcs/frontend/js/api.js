@@ -1,5 +1,3 @@
-import regeneratorRuntime from "regenerator-runtime";
-
 // view api
 const noticeItems = document.querySelectorAll('.notice__home-contents-item-link');
 

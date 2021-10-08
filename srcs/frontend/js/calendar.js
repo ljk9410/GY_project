@@ -1,5 +1,3 @@
-import regeneratorRuntime from "regenerator-runtime";
-
 let today = new Date();
 let calendarDate = new Date();
 
