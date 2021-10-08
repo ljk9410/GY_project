@@ -30,9 +30,9 @@ module.exports = {
                                 targets: "defaults"
                             }]
                         ],
-                        plugins: [
-                            '@babel/transform-runtime'
-                        ]
+                        // plugins: [
+                        //     '@babel/transform-runtime'
+                        // ]
                     }
                 }
             },
