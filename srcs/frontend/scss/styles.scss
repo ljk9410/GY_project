@@ -20,6 +20,9 @@
 // homepage
 @import "./homePage.scss";
 
+// lgoin
+@import "./login.scss";
+
 // font
 @font-face {
     font-family: 'EliceDigitalBaeum_Bold';
@@ -48,7 +51,7 @@ a {
 body {
     // font-family: 'EliceDigitalBaeum_Bold';
     font-family: 'KoPubDotumMedium';
-    overflow: hidden;
+    overflow: auto;
     position: relative;
 }
 
@@ -57,7 +60,7 @@ body {
     z-index: 1;
     box-sizing: border-box;
     width: calc(100% - 78px);
-    height: 100vh;
+    height: 100%;
     left: 78px;
     transition: all 0.5s ease;
 }

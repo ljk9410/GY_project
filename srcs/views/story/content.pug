@@ -22,9 +22,11 @@ block content
                 div.story__content-desc
                     pre=story.desc 
                     small #{new Date(story.createdAt).toLocaleDateString("ko-kr", {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'})}
+            div.story__content-listBtn
+                a(href=`/story`).story__content-listLink 목록
             if loggedIn
-                div
-                    a(href=`${story._id}/update`) 글 수정하기
+                //- div
+                //-     a(href=`${story._id}/update`) 글 수정하기
                 div
                     a(href=`${story._id}/delete` onclick=`return confirm("삭제하시겠습니까?")`) 글 삭제하기
 block scripts 

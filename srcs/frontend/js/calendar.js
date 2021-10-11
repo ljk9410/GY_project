@@ -130,6 +130,10 @@ function handleModal() {
         date.addEventListener("click", drawCalendarModal);
     })
     overlay.addEventListener("click", closeModal);
+    window.addEventListener("keydown", (e) => {
+        if (e.keyCode === 27 && e.code === "Escape")
+            closeModal();
+    });
 }
  
 // server에 form data 넘기기
