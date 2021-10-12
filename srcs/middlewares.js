@@ -1,4 +1,18 @@
 import multer from 'multer';
+import multerS3 from 'multer-s3';
+import aws from "aws-sdk";
+
+const s3 = new aws.S3({
+  credentials: {
+    accessKeyId: process.env.AWS_ID,
+    secretAccessKey: process.env.AWS_PASSWORD, 
+  },
+})
+
+const multerUploader = multerS3({
+  s3: s3,
+  bucket: 'cau-gy'
+})
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -9,7 +23,8 @@ const storage = multer.diskStorage({
     },
     limits: {
         fileSize: 10000000
-    }
+    },
+    storage:multerUploader,
   })
 export const storyUpload = multer({ storage })
 
