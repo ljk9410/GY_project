@@ -7,14 +7,14 @@ const storySchema = new mongoose.Schema({
     createdAt: { type:Date, required:true, default:Date.now },
 });
 
-storySchema.static('filePath', function(files) {
-    let paths = [];
+storySchema.static('fileLocation', function(files) {
+    let locations = [];
 
     for (let i = 0; i < files.length; i++) {
-        paths.push(files[i].path);
+        locations.push(files[i].location);
     }
     
-    return paths;
+    return locations;
 })
 
 const Story = mongoose.model("Story", storySchema);

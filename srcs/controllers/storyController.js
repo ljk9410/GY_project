@@ -17,9 +17,10 @@ export const postCreate = async (req, res) => {
     const files = req.files;
     const { title, desc } = req.body   
 
+    console.log(files);
     try {
         const story = await Story.create({
-            fileUrl:Story.filePath(files),
+            fileUrl:Story.fileLocation(files),
             title:title,
             desc:desc,
         });
@@ -27,6 +28,7 @@ export const postCreate = async (req, res) => {
         return res.redirect("/story");
     } catch(error) {
         // error가 떴을 때 error message를 render 해줄 페이지 새로 만들기
+        console.log(error);
         return res.status(400).render("story/create",{
             errorMessage:error._message,
         })

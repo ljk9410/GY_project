@@ -1,8 +1,11 @@
 mixin story(story)
     a(href=`/story/${story._id}`)
         div.story__img-box
-            div.story__item-img(style=`background-image: url(/uploads/${story.fileUrl[0].substring(8)})`)
-                img(src=`${story.fileUrl[0]}`)
+            div 
+                span=story.fileUrl[0]
+            div.story__item-img(style=`background-image: url(${story.fileUrl[0]})`)
+                img(src=`${story.fileUrl[0]}` crossorigin)
+            //- div.story__item-img(style=`background-image: url(/uploads/${story.fileUrl[0].substring(8)})`)
+            //-     img(src=`${story.fileUrl[0]}`) -> MongoDB 버전
             div.story__img-overlay
                 span=story.title
-        

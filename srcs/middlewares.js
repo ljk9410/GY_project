@@ -14,19 +14,35 @@ const multerUploader = multerS3({
   bucket: 'cau-gy'
 })
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'uploads')
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.originalname)
-    },
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       cb(null, 'uploads')
+//     },
+//     filename: function (req, file, cb) {
+//       cb(null, file.originalname)
+//     },
+//     limits: {
+//         fileSize: 10000000
+//     },
+//     storage:multerUploader,
+//   })
+export const storyUpload = multer({
+    storage:multerUploader,
+    dest: "uploads",
+    acl: "public-read",
+    // destination: function (req, file, cb) {
+    //   cb(null, 'uploads')
+    // },
+    // filename: function (req, file, cb) {
+    //   cb(null, file.originalname)
+    // },
     limits: {
         fileSize: 10000000
     },
-    storage:multerUploader,
-  })
-export const storyUpload = multer({ storage })
+  });
+
+
+// export const storyUpload = multer({ storage })
 
 export const localsMiddleware = (req, res, next) => {
   res.locals.loggedIn = Boolean(req.session.loggedIn);
