@@ -14,8 +14,8 @@ block content
                         //- i.fas.fa-caret-right
                 ul.story__content-slide-list
                     each photo in story.fileUrl 
-                        div.story__content-slide-content(style=`background-image: url(/uploads/${photo.substring(8)})`)
-                            img(src=`/${photo}`)
+                        div.story__content-slide-content(style=`background-image: url(${photo})`)
+                            img(src=`${photo}`)
             div.story__content-desc-container
                 div.slide-pagination-container
                     ul.story__content-slide-pagination
