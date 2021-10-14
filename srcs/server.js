@@ -8,24 +8,10 @@ import storyRouter from './routers/storyRouter';
 import calendarRouter from './routers/calendarRouter';
 import apiRouter from './routers/apiRouter';
 import { localsMiddleware } from './middlewares';
-import cors from 'cors';
 
 const app = express();
 
-// app.use((req, res, next) => {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header(
-//     "Access-Control-Allow-Headers",
-//     "*"
-//     );
-//     res.header(
-//       "Access-Control-Allow-Methods",
-//       "GET, POST, PATCH, DELETE, OPTIONS"
-//       );
-//     console.log(req.headers);
-//     console.log("CORS");
-//     next();
-// });
+
 app.set("view engine", "pug");
 app.set("views", "srcs/views");
 app.use(express.urlencoded({ extended:true }));
@@ -45,13 +31,19 @@ app.use(session({
     })
 }))
 app.use(localsMiddleware);
-app.use(
-  cors({
-    origin: '*',
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  })
-)
+app.use((req, res, next) => {
+  res.header("Access-Control-Expose-Headers", "ETag");
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PATCH, DELETE, OPTIONS"
+    );
+  res.header(
+    "Access-Control-Allow-Headers",
+    "*"
+    );
+    next();
+});
 
 
 // Routers

@@ -11,7 +11,8 @@ const s3 = new aws.S3({
 
 const multerUploader = multerS3({
   s3: s3,
-  bucket: 'cau-gy'
+  bucket: 'cau-gy',
+  acl: "public-read",
 })
 
 // const storage = multer.diskStorage({
@@ -29,7 +30,6 @@ const multerUploader = multerS3({
 export const storyUpload = multer({
     storage:multerUploader,
     dest: "uploads",
-    acl: "public-read",
     // destination: function (req, file, cb) {
     //   cb(null, 'uploads')
     // },

@@ -4,7 +4,7 @@ import fs from "fs";
 export const storyHome = async (req, res) => {
     const stories = await Story.find({}).sort({ createdAt:"desc" });;
 
-    res.render("story/home", { stories });
+    return res.render("story/home", { stories });
 }
 
 export const getCreate = (req, res) => {
