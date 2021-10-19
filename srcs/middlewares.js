@@ -13,6 +13,9 @@ const multerUploader = multerS3({
   s3: s3,
   bucket: 'cau-gy',
   acl: "public-read",
+  key: function(req, file, cb){
+    cb(null, file.originalname.split('.').shift());
+}
 })
 
 // const storage = multer.diskStorage({

@@ -71,7 +71,7 @@ export const deleteContent = async (req, res) => {
             Key: story.fileUrl[i].substring(32),
         }, (err, data) => {
             if (err) { throw err; }
-            console.log('s3 deleteObject', err);
+            console.log('s3 deleteObject', data);
         })
     }
     await Story.findByIdAndDelete(id);
