@@ -1,5 +1,5 @@
 import Story from "../models/Story";
-import fs from "fs";
+import AWS from 'aws-sdk';
 
 export const storyHome = async (req, res) => {
     const stories = await Story.find({}).sort({ createdAt:"desc" });;
@@ -57,11 +57,21 @@ export const postUpdate = (req, res) => {
 export const deleteContent = async (req, res) => {
     const { id } = req.params;
     const story = await Story.findById(id);
+    // let s3 = new AWS.S3();
+    let s3 = new AWS.S3({
+        credentials: {
+          accessKeyId: process.env.AWS_ID,
+          secretAccessKey: process.env.AWS_PASSWORD, 
+        },
+      });
 
     for (let i = 0; i < story.fileUrl.length; i++) {
-        fs.unlink(`${story.fileUrl[i]}`, (err) => {
-            if (err)
-                console.log(`Error: ${err}`);
+        s3.deleteObject({
+            Bucket: 'cau-gy',
+            Key: story.fileUrl[i].substring(32),
+        }, (err, data) => {
+            if (err) { throw err; }
+            console.log('s3 deleteObject', err);
         })
     }
     await Story.findByIdAndDelete(id);
