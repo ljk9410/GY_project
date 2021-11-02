@@ -12,7 +12,10 @@ header.nav__container
                     span.menu__text HOME
                 span.tooltip HOME
             li.menu__item
-                a(href="/about-us").menu__link ABOUT US
+                a(href="/about-us").menu__link
+                    i.fas.fa-users
+                    span.menu__text ABOUT US
+                span.tooltip ABOUT US
             li.menu__item
                 a(href="/calendar").menu__link
                     i.fas.fa-calendar-alt
@@ -31,8 +34,7 @@ header.nav__container
             if !loggedIn
                 li.menu__item
                     a(href="/login").menu__link
-
-                        i.fas.fa-user
+                        i.fas.fa-sign-in-alt
                         span.menu__text LOGIN
                     span.tooltip LOGIN
         footer

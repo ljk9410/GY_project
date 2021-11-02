@@ -7,6 +7,7 @@ module.exports = {
         storySlide: "./srcs/frontend/js/storySlide.js",
         calendar: "./srcs/frontend/js/calendar.js",
         api: "./srcs/frontend/js/api.js",
+        aboutUs: "./srcs/frontend/js/aboutUs.js",
         homePage: "./srcs/frontend/js/homePage.js",
         ui: "./srcs/frontend/js/ui.js",
     },

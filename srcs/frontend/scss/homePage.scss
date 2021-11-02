@@ -1,7 +1,7 @@
-section {
+.main-page__section {
     height: 100vh;
 }
-section:first-child {
+.main-page__section:first-child {
     display: flex;
     align-items: center;
     justify-content: center;
