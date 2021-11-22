@@ -1,20 +1,26 @@
 .abountUs__container {
     height: 100vh;
     overflow-y: auto;
+    position: relative;
+    background-image: url("/images/배경2.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     scroll-snap-type: y mandatory;
     .aboutUs__section {
+        position: relative;
+        z-index: 2;
         width: 100%;
-        height: 100vh;
         font-size: 20px;
-        // border-bottom: 2px solid black;
         box-sizing: border-box;
         transition: all 0.5s ease-in-out;
-        scroll-snap-align: center;
+        scroll-snap-align: start;
     }
     
     .aboutUs__section:first-child {
-        height: 30vh;
-        // background-color: lightcyan;
+        position: relative;
+        height: 95vh;
+        background-color: rgba($color: #000000, $alpha: 0.4);
         .aboutUs__section1-container {
             width: 100%;
             height: 100%;
@@ -23,100 +29,118 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            h2 {
-                display: block;
-                font-size: 28px;
-                font-weight: 700;
-            }
-            h3 {
-                display: block;
-                font-size: 14px;
+            .aboutUs__section1-message {
+                z-index: 1;
+                position: fixed;
+                top: 45%;
+                h2 {
+                    color: white;
+                    display: block;
+                    font-size: 28px;
+                    font-weight: 700;
+                }
+                h3 {
+                    color: white;
+                    display: block;
+                    font-size: 14px;
+                }
             }
         }
-
     }
 
     .aboutUs__section:nth-child(2) {
+        background-color: white;
+        height: 100vh;
         display: flex;
+        align-items: center;
         justify-content: center;
+        // background-color: burlywood;
         .aboutUs__section2-container {
             width: 80%;
-            max-width: 1200px;
-            height: 100%;
+            max-width: 800px;
+            height: 80%;
             display: flex;
-            // background-color: lightgray;
-            .aboutUs__section2-leftbox {
-                width: 50%;
-                height: 100%;
-                padding: 20px;
-
-                .aboutUs__section2-leftbox-1 {
-                    width: 100%;
-                    // height: 20%;
-                    margin: 0 auto;
-                    padding: 40px 0 30px 0;
-                    // padding: 40px 0;
-                    span {
-                        display: block;
-                        font-size: 48px;
-                        white-space: nowrap;
-                        font-weight: 700;
-                        letter-spacing: 2px;
-                        padding: 5px 0;
-                    }
-                }
-
-                .aboutUs__section2-leftbox-2 {
-                    span {
-                        display: block;
-                        font-size: 16px;
-                        padding: 4px 0;
-                        white-space: nowrap;
-                    }
-                }
-
-                .aboutUs__section2-leftbox-3 {
-                    margin-top: 30px;
+            flex-direction: column;
+            .aboutUs__section2-message1 {
+                width: 100%;
+                margin: 0 auto;
+                span {
+                    display: block;
+                    font-size: 44px;
+                    white-space: nowrap;
+                    font-weight: 700;
+                    // letter-spacing: 2px;
+                    padding: 5px 0;
                 }
             }
-            .aboutUs__section2-rightbox {
-                width: 50%;
-                height: 100%;
-                .aboutUs__section2-rightbox-imgbox {
-                    width: 100%;
-                    height: 100%;
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
+            .aboutUs__section2-message2 {
+                margin-top: 20px;
+                span {
+                    display: block;
+                    font-size: 14px;
+                }
+            }
+
+            .aboutUs__section2-message3 {
+                width: 100%;
+                font-size: 24px;
+                font-weight: 700;
+                display: flex;
+                justify-content: space-between;
+                margin-top: 60px;
+                div {
+                    width: 40%;
+                    span {
+                        display: block;
+                        margin-bottom: 20px;
+                    }
+                    p {
+                        display: block;
+                        font-size: 14px;
+                        font-weight: normal;
                     }
                 }
             }
         }
     }
-
+    
     .aboutUs__section:nth-child(3) {
         width: 100%;
-        height: 100%;
+        height: 50vh;
+        background-color: lightcoral;
         display: flex;
         align-items: center;
         justify-content: center;
+
         .aboutUs__section3-container {
-            width: 80%;
+            width: 60%;
+            height: 80%;
+        }
+    }
+
+    .aboutUs__section:nth-child(4) {
+        width: 100%;
+        height: 100vh;
+        .aboutUs__section3-container {
+            width: 100%;
             .aboutUs__section3-cardlist {
                 width: 100%;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
-                justify-content: space-between;
-                flex-wrap: wrap;
-                gap: 20px;
+                justify-content: center;
                 .aboutUs__section3-carditem {
-                    background-color: lightpink;
-                    width: calc(33% - 20px);
-                    height: 200px;
+                    width: 100%;
+                    height: 50vh;
+                    background-color: lightgray;
                 }
             }
         }
+    }
+
+    .aboutUs__section:nth-child(5) {
+        height: 30vh;
+        background-color: #11101d;
     }
     // .aboutUs__section:first-child {
     //     height: 50vh;
