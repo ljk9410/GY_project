@@ -91,7 +91,7 @@
             }
 
             .aboutUs__section2-message3 {
-                width: 100%;
+                width: auto;
                 margin-top: 15px;
                 display: flex;
                 grid-area: message3;
@@ -121,11 +121,12 @@
             }
 
             .aboutUs__section2-message4 {
-                width: 100%;
+                width: auto;
                 margin-top: 20px;
                 display: flex;
                 grid-area: message4;
                 // align-self: center;
+                justify-self: end;
                 div {
                     width: 100%;
                     h3 {
@@ -250,7 +251,7 @@
             .aboutUs__section4-wrap {
                 width: 100%;
                 position: sticky;
-                top: 25%;
+                top: 30%;
                 .aboutUs__section4-messageBox {
                     display: flex;
                     flex-direction: column;
@@ -261,12 +262,7 @@
                         font-weight: 700;
                         margin-bottom: 36px;
                     }
-                    span {
-                        display: block;
-                        font-size: 15px;
-                        font-weight: normal;
-                        padding: 5px 0;
-                    }
+
                 }
                 .aboutUs__section4-cardlist {
                     width: 80%;
@@ -310,50 +306,42 @@
 
     .aboutUs__section:nth-child(5) {
         width: 100%;
-        height: 50vh;
-        background-color: #11101d;
-        color: white;
+        height: 30vh;
+        background-color: white;
         div.aboutUs__section5-container {
-            width: 50%;
+            width: 100%;
             height: 100%;
-            margin: 0 auto;
-            background-color: burlywood;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            .message-box {
+                width: 80%;
+                span {
+                    display: block;
+                    font-size: 15px;
+                    font-weight: normal;
+                    color:rgba(0, 0, 0, 0.5);
+                    padding: 5px 0;
+                    text-align: center;
+                    line-height: 20px;
+                }
+                .copyright {
+                    margin-top: 10px;
+                    font-weight: bold;
+                    color:rgba(0, 0, 0, 1);
+                }
+            }
+            .logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img {
+                    width: 100px;
+                    height: 100px;
+                }
+            }
         }
     }
-    // .aboutUs__section:first-child {
-    //     height: 50vh;
-    //     background-color: black;
-    //     display: flex;
-    //     align-items: center;
-    //     justify-content: center;
-    //     background-color: black;
-    //     color: white;
-    //     font-size: 36px;
-    //     letter-spacing: 3px;
-    //     text-align: center;
-    //     .typed-text {
-    //         font-weight: bold;
-    //         color: tomato;
-    //     }
-    //     .cursor {
-    //         display: inline-block;
-    //         width: 2px;
-    //         background-color: white;
-    //         margin-left: 2px;
-    //         animation: blink 1s infinite;
-    //     }
-    //     .cursor.typing {
-    //         animation: none;
-    //     }
-    //     @keyframes blink {
-    //         0% { background-color: white; }
-    //         49% { background-color: white; }
-    //         50% { background-color: transparent; }
-    //         99% { background-color: transparent; }
-    //         100% { background-color: white; }
-    
-    //     }
-    // }
     
     .scroll-active {
         background-color: tomato;
